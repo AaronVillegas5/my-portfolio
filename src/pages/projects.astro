@@ -29,9 +29,13 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     title="Macroeconomic Time-Series Data Pipeline"
     img="/macro-pipeline.webp"
     desc="Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs (FRED, Open-Meteo) into PostgreSQL, BigQuery, and Snowflake with raw API response persistence to AWS S3 for auditability."
-    url="https://github.com/AaronVillegas5/macro-data-pipeline"
+    url="/blog/macro-data-pipeline"
     badge="Data Engineering"
     tags={["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]}
+    custom_links={[
+      { text: "📖 Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
+    ]}
   />
   <div class="divider my-0"></div>
 
@@ -56,9 +60,13 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     title="A/B Testing Analysis of Digital Marketing Campaigns"
     img="/ab-testing.webp"
     desc="Statistical hypothesis testing on a 588K-user marketing dataset. Executed sample size validation via unequal-group power analysis and two-proportion z-tests, confirming a statistically significant 0.7% conversion lift (p < 0.05)."
-    url="https://github.com/AaronVillegas5/ABTest-MarketingCampaign"
+    url="/blog/ab-test-marketing-campaign"
     badge="A/B Testing"
     tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas"]}
+    custom_links={[
+      { text: "📖 Read Case Study", url: "/blog/ab-test-marketing-campaign", target: "_self", primary: true },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/ABTest-MarketingCampaign", target: "_blank" }
+    ]}
   />
   <div class="divider my-0"></div>
 
