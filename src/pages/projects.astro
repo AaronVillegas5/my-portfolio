@@ -3,49 +3,84 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 ---
 
-<BaseLayout title = "Projects" sideBarActiveItemID="projects">
+<BaseLayout title="Projects | Aaron Kyle Villegas" sideBarActiveItemID="projects">
   <div>
-    <div class="text-3xl w-full font-bold mb-5">Projects Header</div>
+    <div class="text-3xl w-full font-bold mb-5">Featured Projects</div>
   </div>
 
+  <!-- Environmental Health Risk Mapping Platform -->
   <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
+    title="Environmental Health Risk Mapping Platform"
+    img="/env-risk-map.webp"
+    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
+    url="https://github.com/AaronVillegas5"
+    badge="Datathon Winner"
+    tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
   />
   <div class="divider my-0"></div>
-  <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-  />
 
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Projects Header</div>
-  </div>
+  <!-- Macro Data Pipeline -->
+  <HorizontalCard
+    title="Macroeconomic Time-Series Data Pipeline"
+    img="/macro-pipeline.webp"
+    desc="Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs (FRED, Open-Meteo) into PostgreSQL, BigQuery, and Snowflake with raw API response persistence to AWS S3 for auditability."
+    url="https://github.com/AaronVillegas5"
+    badge="Data Engineering"
+    tags={["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]}
+  />
+  <div class="divider my-0"></div>
 
+  <!-- Walmart Sales Data Analysis -->
   <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
+    title="Walmart Sales & Demand Analytics"
+    img="/walmart-analytics.webp"
+    desc="Automated reporting and analytics pipelines evaluating business KPIs across retail locations. Uncovered a 69% holiday sales lift and evaluated store-level demand volatility using Coefficient of Variation (CV) for inventory planning."
+    url="https://github.com/AaronVillegas5"
+    badge="Data Analytics"
+    tags={["Python", "SQL", "Tableau", "Pandas", "Demand Planning"]}
   />
   <div class="divider my-0"></div>
+
+  <!-- A/B Testing Analysis -->
   <HorizontalCard
-    title="Demo Project 4"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    title="A/B Testing Analysis of Digital Marketing Campaigns"
+    img="/ab-testing.webp"
+    desc="Statistical hypothesis testing on a 588K-user marketing dataset. Executed sample size validation via unequal-group power analysis and two-proportion z-tests, confirming a statistically significant 0.7% conversion lift (p < 0.05)."
+    url="https://github.com/AaronVillegas5"
+    badge="A/B Testing"
+    tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas"]}
   />
   <div class="divider my-0"></div>
+
+  <!-- Predicting Marketing Success -->
   <HorizontalCard
-    title="Demo Project 5"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    title="Predicting Marketing Success with Machine Learning"
+    img="/marketing-ml.webp"
+    desc="Customer targeting model built on 40k+ bank marketing records achieving 85% accuracy. Handled class imbalance via class weighting, threshold tuning, and random forest feature importance to identify top macroeconomic predictors."
+    url="https://github.com/AaronVillegas5"
+    badge="Machine Learning"
+    tags={["Python", "scikit-learn", "SQL", "Class Imbalance", "Random Forest"]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- Fixed-Income & Portfolio Modeling -->
+  <HorizontalCard
+    title="Fixed-Income & Portfolio Modeling"
+    img="/portfolio-modeling.webp"
+    desc="Dynamic portfolio model applying Markowitz portfolio theory and the one-fund theorem to optimize asset allocation. Modeled yield to maturity, cash flow streams, and portfolio immunization strategies for fixed-income securities."
+    url="https://github.com/AaronVillegas5"
+    badge="Quant Modeling"
+    tags={["Excel", "Portfolio Theory", "Fixed Income", "Risk Management"]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- Black-Scholes Model Paper -->
+  <HorizontalCard
+    title="Deriving & Understanding the Black-Scholes Option Pricing Model"
+    img="/black-scholes.webp"
+    desc="Quantitative research paper deriving the Black-Scholes PDE using Itô's Lemma, Geometric Brownian Motion, and dynamic delta hedging. Evaluated risk-neutral measures, martingales, and stochastic volatility limitations."
+    url="https://github.com/AaronVillegas5"
+    badge="Research Paper"
+    tags={["Quantitative Finance", "Stochastic Calculus", "LaTeX", "Option Pricing"]}
   />
 </BaseLayout>
