@@ -1,4 +1,5 @@
 ---
+// Home page layout
 import BaseLayout from "../layouts/BaseLayout.astro";
 import HorizontalCard from "../components/HorizontalCard.astro";
 import { getCollection } from "astro:content";
@@ -13,18 +14,23 @@ const last_posts = posts.slice(0, 3);
   <div class="pb-12 mt-5">
     <div class="text-xl py-1 font-medium">Hello! </div>
     <div class="text-5xl font-bold">I'm Aaron Kyle Villegas</div>
-    <div class="text-3xl py-3 font-bold text-primary">Data Scientist & Quantitative Analyst</div>
+    <div class="text-2xl md:text-3xl py-3 font-bold text-primary leading-snug">
+      Data Analyst & Quantitative Modeler | Applied Mathematics, ETL Pipelines & Business Intelligence
+    </div>
     <div class="py-2">
-      <text class="text-lg leading-relaxed">
+      <p class="text-lg leading-relaxed">
         Applied Mathematics graduate specializing in data science, predictive modeling, machine learning, and statistical analysis. Experienced in building automated ETL pipelines, financial risk models, and interactive analytics dashboards.
-      </text>
+      </p>
     </div>
     <div class="mt-8 flex flex-wrap gap-4">
-      <a class="btn btn-primary" href="https://github.com/AaronVillegas5" target="_blank">
-        GitHub Profile ↗
+      <a class="btn btn-primary" href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+        📄 View Resume
       </a>
-      <a href="/cv" class="btn btn-outline">
-        View Resume / CV
+      <a class="btn btn-outline" href="https://linkedin.com/in/aaronvillegas1" target="_blank" rel="noopener noreferrer">
+        💼 LinkedIn
+      </a>
+      <a class="btn btn-outline" href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer">
+        🐙 GitHub
       </a>
     </div>
   </div>
@@ -98,7 +104,7 @@ const last_posts = posts.slice(0, 3);
     last_posts.length > 0 && (
       <>
         <div>
-          <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+          <div class="text-3xl w-full font-bold mb-5 mt-10">Deep Dives & Case Studies</div>
         </div>
 
         {last_posts.map((post) => (

@@ -1,0 +1,65 @@
+---
+---
+
+<div class="dropdown dropdown-end">
+  <div tabindex="0" role="button" class="btn btn-sm btn-ghost gap-1.5 border border-base-300 shadow-xs bg-base-100">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4 text-primary" viewBox="0 0 16 16">
+      <path d="M8 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0 1a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+    </svg>
+    <span class="text-xs font-semibold">Theme</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-3 h-3 opacity-60"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+  </div>
+  <ul tabindex="0" class="dropdown-content z-[100] menu p-2 shadow-xl bg-base-100 rounded-box w-52 text-sm border border-base-300 mt-2">
+    <li>
+      <button class="theme-btn flex items-center justify-between" data-theme-value="emerald">
+        <span>🌲 Deep Emerald & Sage</span>
+      </button>
+    </li>
+    <li>
+      <button class="theme-btn flex items-center justify-between" data-theme-value="blue">
+        <span>🌊 Slate Blue & Zinc</span>
+      </button>
+    </li>
+    <li>
+      <button class="theme-btn flex items-center justify-between" data-theme-value="light">
+        <span>☀️ Clean Light</span>
+      </button>
+    </li>
+    <li>
+      <button class="theme-btn flex items-center justify-between" data-theme-value="dark">
+        <span>🌙 Dark Mode</span>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<script is:inline>
+  (function() {
+    function applyTheme(themeName) {
+      document.documentElement.setAttribute('data-theme', themeName);
+      document.body.setAttribute('data-theme', themeName);
+      localStorage.setItem('portfolio-theme', themeName);
+    }
+
+    // Apply saved theme immediately
+    const saved = localStorage.getItem('portfolio-theme') || 'emerald';
+    applyTheme(saved);
+
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.theme-btn').forEach(function(btn) {
+        btn.addEventListener('click', function(e) {
+          e.preventDefault();
+          const val = btn.getAttribute('data-theme-value');
+          if (val) {
+            applyTheme(val);
+          }
+        });
+      });
+    });
+
+    document.addEventListener('astro:after-swap', function() {
+      const theme = localStorage.getItem('portfolio-theme') || 'emerald';
+      applyTheme(theme);
+    });
+  })();
+</script>

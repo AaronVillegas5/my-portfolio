@@ -1,3 +1,170 @@
 .time-line-container>div:last-child .education__time>.education__line {
     display: none;
 }
+
+/* -------------------------------------------------------------
+   🌲 1. DEEP EMERALD & SAGE (DEFAULT THEME)
+   ------------------------------------------------------------- */
+:root,
+html[data-theme="emerald"],
+body[data-theme="emerald"] {
+  --b1: 140 25% 96%;   /* Canvas: #f2f7f4 (Soft Sage) */
+  --b2: 140 20% 91%;   /* Surface/Sidebar: #e2ece5 */
+  --b3: 140 18% 83%;   /* Borders: #c8dad0 */
+  --p: 160 84% 39%;    /* Primary Accent: #059669 (Deep Emerald) */
+  --pf: 160 84% 32%;   /* Primary Focus */
+  --pc: 0 0% 100%;     /* Primary Text */
+  --bc: 160 70% 12%;   /* Text: #064e3b (Deep Forest) */
+
+  background-color: #f2f7f4 !important;
+  color: #064e3b !important;
+}
+
+html[data-theme="emerald"] .bg-base-100,
+body[data-theme="emerald"] .bg-base-100 {
+  background-color: #ffffff !important;
+}
+
+html[data-theme="emerald"] .bg-base-200,
+body[data-theme="emerald"] .bg-base-200 {
+  background-color: #e2ece5 !important;
+}
+
+html[data-theme="emerald"] .bg-base-300,
+body[data-theme="emerald"] .bg-base-300 {
+  background-color: #c8dad0 !important;
+}
+
+html[data-theme="emerald"] .text-primary {
+  color: #059669 !important;
+}
+
+html[data-theme="emerald"] .btn-primary {
+  background-color: #059669 !important;
+  border-color: #059669 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="emerald"] .btn-primary:hover {
+  background-color: #047857 !important;
+  border-color: #047857 !important;
+}
+
+/* -------------------------------------------------------------
+   🌊 2. SLATE BLUE & ZINC THEME
+   ------------------------------------------------------------- */
+html[data-theme="blue"],
+body[data-theme="blue"] {
+  --b1: 220 30% 97%;   /* Canvas: #f4f6f9 */
+  --b2: 220 25% 93%;   /* Surface: #e9edf4 */
+  --b3: 220 25% 86%;   /* Borders: #d4dde9 */
+  --p: 221 83% 53%;    /* Accent: #2563eb */
+  --bc: 222 47% 11%;   /* Text: #0f172a */
+
+  background-color: #f4f6f9 !important;
+  color: #0f172a !important;
+}
+
+html[data-theme="blue"] .bg-base-100,
+body[data-theme="blue"] .bg-base-100 {
+  background-color: #ffffff !important;
+}
+
+html[data-theme="blue"] .bg-base-200,
+body[data-theme="blue"] .bg-base-200 {
+  background-color: #e9edf4 !important;
+}
+
+html[data-theme="blue"] .bg-base-300,
+body[data-theme="blue"] .bg-base-300 {
+  background-color: #d4dde9 !important;
+}
+
+html[data-theme="blue"] .text-primary {
+  color: #2563eb !important;
+}
+
+html[data-theme="blue"] .btn-primary {
+  background-color: #2563eb !important;
+  border-color: #2563eb !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="blue"] .btn-primary:hover {
+  background-color: #1d4ed8 !important;
+  border-color: #1d4ed8 !important;
+}
+
+/* -------------------------------------------------------------
+   ☀️ 3. CLEAN LIGHT THEME
+   ------------------------------------------------------------- */
+html[data-theme="light"],
+body[data-theme="light"] {
+  background-color: #ffffff !important;
+  color: #1e293b !important;
+}
+
+html[data-theme="light"] .bg-base-100,
+body[data-theme="light"] .bg-base-100 {
+  background-color: #ffffff !important;
+}
+
+html[data-theme="light"] .bg-base-200,
+body[data-theme="light"] .bg-base-200 {
+  background-color: #f8fafc !important;
+}
+
+html[data-theme="light"] .bg-base-300,
+body[data-theme="light"] .bg-base-300 {
+  background-color: #e2e8f0 !important;
+}
+
+html[data-theme="light"] .text-primary {
+  color: #0f172a !important;
+}
+
+html[data-theme="light"] .btn-primary {
+  background-color: #0f172a !important;
+  border-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+/* -------------------------------------------------------------
+   🌙 4. DARK MODE THEME
+   ------------------------------------------------------------- */
+html[data-theme="dark"],
+body[data-theme="dark"] {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+html[data-theme="dark"] .bg-base-100,
+body[data-theme="dark"] .bg-base-100 {
+  background-color: #1e293b !important;
+  border-color: #334155 !important;
+}
+
+html[data-theme="dark"] .bg-base-200,
+body[data-theme="dark"] .bg-base-200 {
+  background-color: #0f172a !important;
+}
+
+html[data-theme="dark"] .bg-base-300,
+body[data-theme="dark"] .bg-base-300 {
+  background-color: #334155 !important;
+}
+
+html[data-theme="dark"] .text-primary {
+  color: #38bdf8 !important;
+}
+
+html[data-theme="dark"] .btn-primary {
+  background-color: #0284c7 !important;
+  border-color: #0284c7 !important;
+  color: #ffffff !important;
+}
+
+html[data-theme="dark"] .text-base-content\/80,
+html[data-theme="dark"] .text-base-content\/90 {
+  color: #cbd5e1 !important;
+}

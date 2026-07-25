@@ -9,14 +9,14 @@ import { Image } from "astro:assets";
   <div class="flex flex-col md:flex-row gap-5 items-start md:items-center">
     {
       img && (
-        <a href={url} target={target} class="shrink-0 w-full md:w-48 overflow-hidden rounded-lg">
+        <a href={url} target={target} class="shrink-0 w-full md:w-72 overflow-hidden rounded-lg">
           <Image
             src={img}
             width={750}
             height={422}
             format="webp"
             alt={title}
-            class="w-full md:w-48 h-32 object-cover rounded-lg hover:scale-105 transition ease-in-out duration-300"
+            class="w-full md:w-72 h-44 md:h-48 object-cover rounded-lg hover:scale-105 transition ease-in-out duration-300"
           />
         </a>
       )
