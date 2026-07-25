@@ -30,41 +30,67 @@ const last_posts = posts.slice(0, 3);
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-5">Featured Projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-5">Featured Projects</div>
   </div>
 
-  <HorizontalCard
-    title="Environmental Health Risk Mapping Platform"
-    img="/env-risk-map.webp"
-    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
-    url="https://github.com/AaronVillegas5/environmental-health-risk-map"
-    badge="Datathon Winner"
-    tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
-  />
-  <div class="divider my-0"></div>
+  <!-- 1. Walmart Sales & Demand Analytics -->
   <HorizontalCard
     title="Walmart Sales & Demand Analytics"
     img="/walmart-analytics.webp"
     desc="Automated reporting and analytics pipelines evaluating business KPIs across retail locations. Uncovered a 69% holiday sales lift and evaluated store-level demand volatility using Coefficient of Variation (CV) for inventory planning."
-    url="https://github.com/AaronVillegas5/walmart_data_analysis"
+    url="/blog/walmart-sales"
     badge="Data Analytics"
     tags={["Python", "SQL", "Tableau", "Pandas", "Demand Planning"]}
     custom_links={[
-      { text: "📊 Tableau Dashboard", url: "https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard", target: "_blank", primary: true }
+      { text: "📖 Read Case Study", url: "/blog/walmart-sales", target: "_self", primary: true },
+      { text: "📊 Tableau Dashboard", url: "https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard", target: "_blank" },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/walmart_data_analysis", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
+
+  <!-- 2. Environmental Health Risk Mapping Platform -->
   <HorizontalCard
-    title="Deriving & Understanding the Black-Scholes Option Pricing Model"
-    img="/black-scholes.webp"
-    desc="Quantitative research paper deriving the Black-Scholes PDE using Itô's Lemma, Geometric Brownian Motion, and dynamic delta hedging. Evaluated risk-neutral measures, martingales, and stochastic volatility limitations."
-    url="/projects/black-scholes-paper"
-    target="_self"
-    badge="Research Paper"
-    tags={["Quantitative Finance", "Stochastic Calculus", "LaTeX", "Option Pricing"]}
+    title="Environmental Health Risk Mapping Platform"
+    img="/env-risk-map.webp"
+    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
+    url="/blog/environmental-health-risk-map"
+    badge="Datathon Winner"
+    tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
     custom_links={[
-      { text: "📄 Preview Paper", url: "/projects/black-scholes-paper", target: "_self", primary: true },
-      { text: "📥 Download PDF", url: "/black-scholes-paper.pdf", target: "_blank" }
+      { text: "📖 Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
+      { text: "🌐 Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 3. Macroeconomic Time-Series Data Pipeline -->
+  <HorizontalCard
+    title="Macroeconomic Time-Series Data Pipeline"
+    img="/macro-pipeline.webp"
+    desc="Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs (FRED, Open-Meteo) into PostgreSQL, BigQuery, and Snowflake with raw API response persistence to AWS S3 for auditability."
+    url="/blog/macro-data-pipeline"
+    badge="Data Engineering"
+    tags={["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]}
+    custom_links={[
+      { text: "📖 Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 4. A/B Testing Analysis -->
+  <HorizontalCard
+    title="A/B Testing Analysis of Digital Marketing Campaigns"
+    img="/ab-testing.webp"
+    desc="Statistical hypothesis testing on a 588K-user marketing dataset. Executed sample size validation via unequal-group power analysis and two-proportion z-tests, confirming a statistically significant 0.7% conversion lift (p < 0.05)."
+    url="/blog/ab-test-marketing-campaign"
+    badge="A/B Testing"
+    tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas"]}
+    custom_links={[
+      { text: "📖 Read Case Study", url: "/blog/ab-test-marketing-campaign", target: "_self", primary: true },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/ABTest-MarketingCampaign", target: "_blank" }
     ]}
   />
 

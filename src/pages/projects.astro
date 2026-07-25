@@ -8,38 +8,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <div class="text-3xl w-full font-bold mb-5">Featured Projects</div>
   </div>
 
-  <!-- Environmental Health Risk Mapping Platform -->
-  <HorizontalCard
-    title="Environmental Health Risk Mapping Platform"
-    img="/env-risk-map.webp"
-    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
-    url="/blog/environmental-health-risk-map"
-    badge="Datathon Winner"
-    tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
-    custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
-      { text: "🌐 Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
-    ]}
-  />
-  <div class="divider my-0"></div>
-
-  <!-- Macro Data Pipeline -->
-  <HorizontalCard
-    title="Macroeconomic Time-Series Data Pipeline"
-    img="/macro-pipeline.webp"
-    desc="Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs (FRED, Open-Meteo) into PostgreSQL, BigQuery, and Snowflake with raw API response persistence to AWS S3 for auditability."
-    url="/blog/macro-data-pipeline"
-    badge="Data Engineering"
-    tags={["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]}
-    custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
-    ]}
-  />
-  <div class="divider my-0"></div>
-
-<!-- Walmart Sales Data Analysis -->
+  <!-- 1. Walmart Sales Data Analysis -->
   <HorizontalCard
     title="Walmart Sales & Demand Analytics"
     img="/walmart-analytics.webp"
@@ -55,7 +24,38 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   />
   <div class="divider my-0"></div>
 
-  <!-- A/B Testing Analysis -->
+  <!-- 2. Environmental Health Risk Mapping Platform -->
+  <HorizontalCard
+    title="Environmental Health Risk Mapping Platform"
+    img="/env-risk-map.webp"
+    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
+    url="/blog/environmental-health-risk-map"
+    badge="Datathon Winner"
+    tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
+    custom_links={[
+      { text: "📖 Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
+      { text: "🌐 Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 3. Macro Data Pipeline -->
+  <HorizontalCard
+    title="Macroeconomic Time-Series Data Pipeline"
+    img="/macro-pipeline.webp"
+    desc="Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs (FRED, Open-Meteo) into PostgreSQL, BigQuery, and Snowflake with raw API response persistence to AWS S3 for auditability."
+    url="/blog/macro-data-pipeline"
+    badge="Data Engineering"
+    tags={["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]}
+    custom_links={[
+      { text: "📖 Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
+      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 4. A/B Testing Analysis -->
   <HorizontalCard
     title="A/B Testing Analysis of Digital Marketing Campaigns"
     img="/ab-testing.webp"
@@ -70,7 +70,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   />
   <div class="divider my-0"></div>
 
-  <!-- Predicting Marketing Success -->
+  <!-- 5. Predicting Marketing Success -->
   <HorizontalCard
     title="Predicting Marketing Success with Machine Learning"
     img="/marketing-ml.webp"
@@ -81,7 +81,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   />
   <div class="divider my-0"></div>
 
-  <!-- Fixed-Income & Portfolio Modeling -->
+  <!-- 6. Fixed-Income & Portfolio Modeling -->
   <HorizontalCard
     title="Fixed-Income & Portfolio Modeling"
     img="/portfolio-modeling.webp"
@@ -92,7 +92,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   />
   <div class="divider my-0"></div>
 
-  <!-- Black-Scholes Model Paper -->
+  <!-- 7. Black-Scholes Model Paper -->
   <HorizontalCard
     title="Deriving & Understanding the Black-Scholes Option Pricing Model"
     img="/black-scholes.webp"
