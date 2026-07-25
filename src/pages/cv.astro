@@ -7,13 +7,13 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   <!-- Download Resume Button & Profile Header -->
   <div class="flex justify-between items-center mb-5">
     <div class="text-3xl font-bold">Profile</div>
-    <a href="/resume.pdf" target="_blank" class="btn btn-outline btn-primary btn-sm md:btn-md">
+    <a href="/Resume.pdf" target="_blank" class="btn btn-outline btn-primary btn-sm md:btn-md">
       📄 Download PDF Resume
     </a>
   </div>
 
-  <div class="mb-10 text-justify">
-    Applied Mathematics graduate specializing in data science, predictive modeling, machine learning, and statistical analysis to uncover behavioral trends. Highly skilled in advanced SQL, Python, ETL pipelines, and enterprise visualization to translate complex organizational data into actionable strategies. Relocating to Northwest Arkansas.
+  <div class="mb-10 text-justify text-base leading-relaxed">
+    Applied Mathematics graduate specializing in data analytics, business intelligence, ETL processes, and KPI reporting to uncover actionable retail trends. Highly skilled in translating complex data into business strategies using SQL, Python, and Tableau. Based in Bentonville, Arkansas.
   </div>
 
   <!-- Education -->
@@ -24,27 +24,26 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
       title="B.S. in Applied and Computational Mathematics (Specialization in Data Science)"
-      subtitle="2022 to 2026 at University of California, Irvine — Irvine, CA"
+      subtitle="Graduated June 2026 at University of California, Irvine — Irvine, CA"
     >
-      <p class="font-semibold text-sm mb-1">GPA: 3.91 | Cum Laude | Howard Tucker Award in Mathematics | 9x Dean's Honor List</p>
-      <p class="text-sm"><b>Relevant Coursework:</b> Mathematical Machine Learning (A+), Optimization I & II (A+), Statistical Methods for Data I & II (A+), Financial Derivatives & Fixed Income (A+), Numerical Analysis, Linear Algebra, Probability</p>
+      <p class="font-semibold text-sm mb-1 text-primary">GPA: 3.91 | Cum Laude | Recipient of Howard Tucker Award in Mathematics | 9x Dean's Honor List</p>
+      <p class="text-sm text-base-content/90"><b>Relevant Coursework:</b> Mathematical Machine Learning (A+), Optimization I & II (A+), Statistical Methods for Data I & II (A+), Financial Derivatives & Fixed Income (A+), Numerical Analysis, Linear Algebra, Probability</p>
     </TimeLineElement>
   </div>
 
-  <!-- Experience -->
+  <!-- Relevant Experience -->
   <div class="mb-5">
-    <div class="text-3xl w-full font-bold">Experience</div>
+    <div class="text-3xl w-full font-bold">Relevant Experience</div>
   </div>
 
   <div class="time-line-container mb-10">
     <TimeLineElement
       title="AI Benchmark Engineering Fellow"
-      subtitle="June 2026 to July 2026 at Handshake AI (Remote)"
+      subtitle="July 2026 to Present at Handshake AI (Remote)"
     >
       <ul class="list-disc ml-4 text-sm grid gap-1">
-        <li>Engineered a synthetic time-series telemetry dataset to benchmark frontier AI models on advanced Exploratory Data Analysis (EDA) and anomaly detection.</li>
-        <li>Programmatically injected overlapping data anomalies (time zone shifts, unit glitches, multi-day thermal drift) to simulate silent ETL pipeline failures.</li>
-        <li>Developed an automated Python verification suite using local OLS detrending and nan-median aggregation to evaluate model accuracy within strict statistical tolerances.</li>
+        <li>Developed robust testing frameworks to identify data anomalies (e.g., time zone shifts, unit glitches), ensuring the integrity of downstream ETL pipelines and executive BI reports.</li>
+        <li>Developed an automated Python verification suite utilizing statistical analysis to evaluate data accuracy and maintain strict reporting tolerances.</li>
       </ul>
     </TimeLineElement>
 
@@ -56,9 +55,16 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
         <li>Selected for competitive quantitative finance program; developed and optimized a Python-based trading strategy with a team in a simulated environment, finishing in the top 25%.</li>
       </ul>
     </TimeLineElement>
+  </div>
 
+  <!-- Employment -->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Employment</div>
+  </div>
+
+  <div class="time-line-container mb-10">
     <TimeLineElement
-      title="Rock Wall Supervisor & Belayer"
+      title="Rock Wall Supervisor and Belayer"
       subtitle="April 2024 to June 2026 at UCI Recreation Center — Irvine, CA"
     >
       <ul class="list-disc ml-4 text-sm grid gap-1">
@@ -75,43 +81,99 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
       </ul>
     </TimeLineElement>
   </div>
-<!-- Featured Projects Teaser -->
+
+  <!-- Data Analytics Projects Section (Clean Grid Cards) -->
   <div class="mb-5">
     <div class="flex justify-between items-end border-b pb-2">
-      <div class="text-3xl font-bold">Key Technical Projects</div>
+      <div class="text-3xl font-bold">Data Analytics Projects</div>
       <a href="/projects" class="text-sm text-primary hover:underline">View All Projects & Demos →</a>
     </div>
   </div>
 
-  <div class="grid gap-3 mb-10 text-sm">
-    <div class="p-3 bg-base-200 rounded-lg">
-      <div class="font-bold">
-        <a href="/projects" class="hover:underline text-primary">Environmental Health Risk Mapping Platform</a> 
-        <span class="badge badge-sm badge-secondary ml-2">Datathon Winner</span>
+  <div class="grid gap-4 mb-10 text-sm">
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://github.com/AaronVillegas5/walmart_data_analysis" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            Walmart Retail Sales & Inventory Strategy Analysis ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">April 2026</span>
       </div>
-      <p class="text-xs text-base-content/80 mt-1">
-        XGBoost model & FastAPI backend predicting health risks for 700+ ZIP codes with spatial analysis.
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Automated reporting & demand analytics pipeline evaluating store-level volatility (CV) & uncovering a 69% holiday sales lift for inventory planning using Python, SQL, and Tableau.
       </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">SQL</span>
+        <span class="badge badge-outline badge-xs">Tableau</span>
+        <span class="badge badge-outline badge-xs">Pandas</span>
+      </div>
     </div>
 
-    <div class="p-3 bg-base-200 rounded-lg">
-      <div class="font-bold">
-        <a href="/projects" class="hover:underline text-primary">Macroeconomic Time-Series Data Pipeline</a>
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="/blog/environmental-health-risk-map" class="hover:underline text-primary">
+            Environmental Health Risk Mapping Platform ↗
+          </a>
+          <span class="badge badge-sm badge-secondary ml-2">Datathon Winner</span>
+        </div>
+        <span class="text-xs text-base-content/70">April 2026</span>
       </div>
-      <p class="text-xs text-base-content/80 mt-1">
-        Multi-source ETL pipeline ingesting financial/weather APIs into PostgreSQL, BigQuery, and Snowflake with AWS S3 raw logging.
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        XGBoost machine learning model & FastAPI backend predicting health risks across 700+ ZIP codes using an engineered Health Vulnerability Index (HVI).
       </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">XGBoost</span>
+        <span class="badge badge-outline badge-xs">FastAPI</span>
+        <span class="badge badge-outline badge-xs">Spatial Analysis</span>
+        <span class="badge badge-outline badge-xs">Python</span>
+      </div>
     </div>
 
-    <div class="p-3 bg-base-200 rounded-lg">
-      <div class="font-bold">
-        <a href="/projects" class="hover:underline text-primary">Walmart Sales Data Analysis & Demand Analytics</a>
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="/projects" class="hover:underline text-primary">
+            A/B Testing Analysis of Digital Marketing Campaigns ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">May 2026</span>
       </div>
-      <p class="text-xs text-base-content/80 mt-1">
-        Python/SQL reporting pipeline evaluating store-level demand volatility (CV) and holiday sales lift for inventory planning.
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Statistical A/B testing framework evaluating conversion rate lifts and presenting visual KPIs across large-scale customer datasets (588K+ users).
       </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">A/B Testing</span>
+        <span class="badge badge-outline badge-xs">Statistical Analysis</span>
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">Seaborn</span>
+      </div>
+    </div>
+
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="/projects" class="hover:underline text-primary">
+            End-to-End Macro Data Pipeline ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">April 2026 – Present</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Multi-source ETL pipeline ingesting financial/weather APIs into PostgreSQL, BigQuery, and Snowflake with AWS S3 raw logging and automated data cleaning.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">ETL Pipeline</span>
+        <span class="badge badge-outline badge-xs">PostgreSQL</span>
+        <span class="badge badge-outline badge-xs">BigQuery</span>
+        <span class="badge badge-outline badge-xs">Snowflake</span>
+        <span class="badge badge-outline badge-xs">AWS S3</span>
+      </div>
     </div>
   </div>
+
   <!-- Honors & Awards -->
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Honors & Awards</div>
@@ -119,7 +181,7 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <ul class="list-disc mx-6 mb-10 grid gap-2 text-sm">
     <li><b>Datathon Winner (Best Visualization):</b> Environmental Health Risk Mapping Platform (Out of 39 teams) — <i>April 2026</i></li>
-    <li><b>Howard Tucker Award in Mathematics:</b> Outstanding achievement in upper-division math coursework — <i>June 2026</i></li>
+    <li><b>Howard Tucker Award in Mathematics:</b> Outstanding achievement in upper-division math coursework — <i>June 2024</i></li>
     <li><b>Cum Laude & 9x Dean's Honor List:</b> Maintained 3.91 GPA across all quarters at UC Irvine — <i>2022–2026</i></li>
   </ul>
 
@@ -147,16 +209,16 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <div>
       <h4 class="font-bold border-b pb-1 mb-2">Tools & Cloud Infrastructure</h4>
       <ul class="list-disc ml-5 grid gap-1">
-        <li>Tableau, PowerBI, Excel</li>
-        <li>PostgreSQL, BigQuery, Snowflake</li>
-        <li>AWS S3, Docker, Git, Linux CLI</li>
+        <li>Tableau, PowerBI, BigQuery</li>
+        <li>Snowflake, AWS S3, Git</li>
+        <li>PostgreSQL, Excel, Linux CLI</li>
       </ul>
     </div>
     <div>
       <h4 class="font-bold border-b pb-1 mb-2">Methods & Domains</h4>
       <ul class="list-disc ml-5 grid gap-1">
         <li>ETL Data Pipelines, Data Architecture</li>
-        <li>Machine Learning & Predictive Modeling</li>
+        <li>Data Visualization & KPI Tracking</li>
         <li>A/B Testing & Statistical Analysis</li>
       </ul>
     </div>

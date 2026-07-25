@@ -3,5 +3,5 @@
 
 export const SITE_TITLE = 'Aaron Villegas | Applied Math & Data Portfolio';
 export const SITE_DESCRIPTION = 'Personal portfolio showcasing data pipelines, ML models, and analytics.';
-export const GENERATE_SLUG_FROM_TITLE = true
+export const GENERATE_SLUG_FROM_TITLE = false
 export const TRANSITION_API = true
