@@ -1,0 +1,183 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="Black-Scholes Model Paper | Aaron Kyle Villegas" sideBarActiveItemID="projects">
+  <div class="max-w-4xl mx-auto py-6 px-2 sm:px-4">
+    <!-- Header Navigation -->
+    <div class="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-base-300">
+      <a href="/projects" class="btn btn-ghost btn-sm gap-2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+        </svg>
+        Back to Projects
+      </a>
+      <div class="flex items-center gap-2">
+        <button onclick="window.print()" class="btn btn-outline btn-sm gap-1">
+          🖨️ Print / Save PDF
+        </button>
+        <a href="/black-scholes-paper.pdf" download target="_blank" class="btn btn-primary btn-sm gap-1">
+          📥 Download PDF
+        </a>
+      </div>
+    </div>
+
+    <!-- Paper Container -->
+    <article class="bg-base-100 p-8 sm:p-12 rounded-xl shadow-xl border border-base-200 text-base-content print:shadow-none print:p-0 print:border-none">
+      
+      <!-- Title & Author Header -->
+      <header class="text-center mb-10 pb-8 border-b border-base-200">
+        <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4 text-primary leading-tight">
+          Deriving and Understanding the Black-Scholes Option Pricing Model
+        </h1>
+        <p class="text-xl font-semibold text-base-content/90 mb-1">Aaron Villegas</p>
+        <p class="text-sm text-base-content/60 font-mono">July 25, 2026</p>
+      </header>
+
+      <!-- Abstract -->
+      <div class="bg-base-200/50 p-6 rounded-lg mb-10 border-l-4 border-primary italic">
+        <h2 class="text-lg font-bold not-italic mb-2 text-primary">Abstract</h2>
+        <p class="text-base leading-relaxed text-base-content/90">
+          This paper explores the mathematical foundations of the Black-Scholes option pricing model in finance, a widely used model since its introduction in 1973. This paper will derive the Black-Scholes PDE and introduce the closed-form solution. Its closed-form solution allows for option prices to be computed quickly with relevant parameters. We examine the use of stochastic processes to model stock prices, utilizing key concepts such as Geometric Brownian Motion and Itô's Lemma to explain how volatility and randomness affect asset prices. This paper discusses the advantages, limitations, and assumptions of the Black-Scholes model, illustrating how these approaches can be utilized to calculate and manage financial risk in the financial market.
+        </p>
+      </div>
+
+      <!-- Main Body Sections -->
+      <div class="space-y-8 text-base leading-relaxed">
+        
+        <!-- Section 1 -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-base-200 text-secondary">1. Introduction</h2>
+          <p class="mb-4">
+            The global stock market is estimated to be worth around $127 trillion [2], with one source stating the average daily notional value of stocks traded is about $405 billion a day. Options are a type of financial contract that contains leverage to buy or sell 100 shares of a stock at a fraction of the price of owning a stock. Starting in 2021, the average daily nominal value of options traded reached $450 billion a day, higher than stock trading at that time. Before the Black-Scholes formula was introduced in 1973, options were traded largely on rules of thumb and intuition. The introduction of the Black-Scholes model, developed by Fischer Black, Myron Scholes, and Robert Merton, provided a mathematical foundation for pricing options and allowed for the growth of the multi-trillion-dollar options industry.
+          </p>
+          <p class="mb-4">
+            The key concept that Black-Scholes introduced was using dynamic hedging and risk-neutral pricing to find the theoretical price of an option based on variables such as stock price, strike price, time to expiration, volatility, and risk-free rate.
+          </p>
+          <p>
+            The value of options depends on the future price of the underlying stock. This creates a challenge where it can be difficult to price options since the stock price is uncertain. Stochastic calculus provides the mathematical framework for analyzing financial markets and random price movements. Without it, typical calculus is not enough to manage the non-differentiable processes that model asset prices. The Black-Scholes model views stocks as Geometric Brownian Motion (GBM), a type of stochastic process. An essential stochastic tool is Itô's Lemma, which allows us to differentiate the option price function, which depends on the stochastic GBM stock process.
+          </p>
+        </section>
+
+        <!-- Section 2 -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-base-200 text-secondary">2. Background</h2>
+          <p class="mb-4">
+            This section establishes the foundational financial and mathematical definitions and concepts throughout the paper. We begin by introducing options and their role in reducing risk, followed by the stochastic tools forming the mathematical foundation.
+          </p>
+
+          <h3 class="text-xl font-semibold mt-6 mb-3 text-primary">2.1 Financial Background</h3>
+          
+          <div class="bg-base-200/40 p-4 rounded-lg my-3 border border-base-300">
+            <p><strong>Definition 2.1 (Option):</strong> An option is a security that gives the right, but not the obligation, to buy or sell an asset at a set price within a specific period of time.</p>
+          </div>
+
+          <div class="bg-base-200/40 p-4 rounded-lg my-3 border border-base-300">
+            <p><strong>Definition 2.2 (Call Option):</strong> A call option is a type of option that gives the right to buy an asset at a set price within a specific period of time. Profits when a stock price rises above the strike price plus the premium paid.</p>
+          </div>
+
+          <div class="bg-base-200/40 p-4 rounded-lg my-3 border border-base-300">
+            <p><strong>Definition 2.3 (Strike Price):</strong> The specified price for which an option-holder buys or sells an asset when exercising an option.</p>
+          </div>
+
+          <div class="my-6 text-center">
+            <div class="inline-block p-4 bg-base-200 rounded-xl border border-base-300">
+              <img src="/black-scholes.webp" alt="Call Option Payoff Diagram" class="max-w-full h-auto rounded-lg mx-auto max-h-80 object-contain" />
+              <p class="text-xs text-base-content/70 mt-2 font-mono">Figure 1: Profit/Loss Graph of a Call Option</p>
+            </div>
+          </div>
+
+          <div class="bg-base-200/40 p-4 rounded-lg my-3 border border-base-300">
+            <p><strong>Definition 2.4 (European Option):</strong> A type of option that can only be exercised on a specific future date (maturity date T).</p>
+          </div>
+
+          <div class="bg-base-200/40 p-4 rounded-lg my-3 border border-base-300">
+            <p><strong>Definition 2.6 & 2.7 (Risk-Free Rate & Discount Factor):</strong> Given a constant risk-free rate <em>r</em>, the discount factor is <em>e<sup>-r(T-t)</sup></em> for current time <em>t</em> and future time <em>T</em>.</p>
+          </div>
+
+          <div class="bg-base-200/40 p-4 rounded-lg my-3 border border-base-300">
+            <p><strong>Definition 2.10 (Dynamic Hedging):</strong> The practice of continuously adjusting a portfolio based on market movements to eliminate risk, such as shorting the underlying stock to offset option price fluctuations.</p>
+          </div>
+
+          <h3 class="text-xl font-semibold mt-8 mb-3 text-primary">2.2 Stochastic Background</h3>
+          <p class="mb-3">
+            A <strong>Brownian Motion (Wiener Process)</strong> <em>B<sub>t</sub></em> is a continuous stochastic process with independent, normally distributed increments: <em>B<sub>t+u</sub> - B<sub>t</sub> ~ N(0, u)</em>.
+          </p>
+          
+          <div class="bg-base-200/40 p-4 rounded-lg my-3 border border-base-300">
+            <p><strong>Definition 2.13 (Geometric Brownian Motion):</strong> A stock price <em>S<sub>t</sub></em> follows GBM if it satisfies the stochastic differential equation (SDE):</p>
+            <div class="text-center font-mono my-2 py-2 bg-base-300/50 rounded">
+              dS<sub>t</sub> = &mu; S<sub>t</sub> dt + &sigma; S<sub>t</sub> dB<sub>t</sub>
+            </div>
+            <p class="text-sm">where &mu; is the drift rate and &sigma; is volatility. Analytical solution:</p>
+            <div class="text-center font-mono my-2 py-2 bg-base-300/50 rounded">
+              S<sub>t</sub> = S<sub>0</sub> exp[ (&mu; - &sigma;<sup>2</sup>/2) t + &sigma; B<sub>t</sub> ]
+            </div>
+          </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section>
+          <h2 class="text-2xl font-bold mb-4 pb-2 border-b border-base-200 text-secondary">3. Black-Scholes Derivation & Solution</h2>
+          
+          <div class="bg-primary/10 p-5 rounded-lg my-4 border-l-4 border-primary">
+            <h3 class="font-bold text-primary mb-2">Lemma 3.1 (Itô's Lemma)</h3>
+            <p class="mb-2">Let <em>f(t, X<sub>t</sub>)</em> be a twice differentiable function, and <em>dX<sub>t</sub> = &mu;<sub>t</sub> dt + &sigma;<sub>t</sub> dB<sub>t</sub></em>. Then:</p>
+            <div class="text-center font-mono my-3 py-2 bg-base-100 rounded border border-base-300 overflow-x-auto">
+              df(t, X<sub>t</sub>) = ( &part;f/&part;t + &mu;<sub>t</sub> &part;f/&part;x + &frac12; &sigma;<sub>t</sub><sup>2</sup> &part;<sup>2</sup>f/&part;x<sup>2</sup> ) dt + &sigma;<sub>t</sub> &part;f/&part;x dB<sub>t</sub>
+            </div>
+          </div>
+
+          <div class="bg-secondary/10 p-5 rounded-lg my-4 border-l-4 border-secondary">
+            <h3 class="font-bold text-secondary mb-2">Theorem 3.2 (Black-Scholes Partial Differential Equation)</h3>
+            <p class="mb-2">Consider a European option with price <em>V(t, S)</em>. By constructing a risk-free portfolio &Pi; = V - &Delta;S with &Delta; = &part;V/&part;S, the Black-Scholes PDE is:</p>
+            <div class="text-center font-mono text-lg font-bold my-3 py-3 bg-base-100 rounded border border-secondary/30 overflow-x-auto">
+              &part;V/&part;t + r S (&part;V/&part;S) + &frac12; &sigma;<sup>2</sup> S<sup>2</sup> (&part;<sup>2</sup>V/&part;S<sup>2</sup>) = r V
+            </div>
+          </div>
+
+          <h3 class="text-xl font-semibold mt-6 mb-3 text-primary">Theorem 3.5 (Closed-Form Solution)</h3>
+          <p class="mb-3">The exact price of a European call option <em>C<sub>0</sub></em> and put option <em>P<sub>0</sub></em> are given by:</p>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 my-4">
+            <div class="p-4 bg-base-200/60 rounded-lg border border-base-300 font-mono text-center">
+              <div class="text-sm font-bold text-primary mb-1">Call Option Price C<sub>0</sub></div>
+              <div class="text-base my-2">C<sub>0</sub> = S<sub>0</sub> N(d<sub>1</sub>) - K e<sup>-rT</sup> N(d<sub>2</sub>)</div>
+            </div>
+            <div class="p-4 bg-base-200/60 rounded-lg border border-base-300 font-mono text-center">
+              <div class="text-sm font-bold text-primary mb-1">Put Option Price P<sub>0</sub></div>
+              <div class="text-base my-2">P<sub>0</sub> = K e<sup>-rT</sup> N(-d<sub>2</sub>) - S<sub>0</sub> N(-d<sub>1</sub>)</div>
+            </div>
+          </div>
+
+          <div class="p-4 bg-base-200/40 rounded-lg border border-base-300 font-mono text-sm space-y-2">
+            <p class="text-center">where d<sub>1</sub> = [ ln(S<sub>0</sub>/K) + (r + &sigma;<sup>2</sup>/2)T ] / [ &sigma; &radic;T ]</p>
+            <p class="text-center">d<sub>2</sub> = d<sub>1</sub> - &sigma; &radic;T</p>
+          </div>
+
+          <!-- Numerical Example -->
+          <div class="mt-8 p-6 bg-base-200/30 rounded-xl border border-base-300">
+            <h4 class="font-bold text-lg mb-3 text-secondary">Example 3.6 (Numerical Pricing Example)</h4>
+            <p class="text-sm mb-3">Given parameters: S<sub>0</sub> = $100, Strike K = $110, Maturity T = 1 year, Risk-free rate r = 4%, Volatility &sigma; = 20%.</p>
+            <div class="font-mono text-sm space-y-1 bg-base-100 p-3 rounded border border-base-300">
+              <p>d<sub>1</sub> = [ ln(100/110) + (0.04 + 0.5 &times; 0.20<sup>2</sup>)(1) ] / (0.20 &times; 1) = -0.17655</p>
+              <p>d<sub>2</sub> = -0.17655 - 0.20 = -0.37655</p>
+              <p class="font-bold text-primary mt-2">C<sub>0</sub> = 100 &times; N(-0.17655) - 110 &times; e<sup>-0.04</sup> &times; N(-0.37655) = $5.65084</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- References -->
+        <section class="pt-6 border-t border-base-200">
+          <h2 class="text-xl font-bold mb-4 text-secondary">References</h2>
+          <ol class="list-decimal ml-6 space-y-2 text-sm text-base-content/80 font-mono">
+            <li>Black, Fischer, and Myron Scholes. "The pricing of options and corporate liabilities." <em>Journal of Political Economy</em>, 81(3):637–654, 1973.</li>
+            <li>Ross, Jenna. "The $127 Trillion Global Stock Market in One Giant Chart." <em>VisualCapitalist</em>, Aug 2025.</li>
+            <li>Yoo, Younggeun. "Stochastic Calculus and Black-Scholes Model." <em>University of Chicago, Mathematics REU</em>, 2017.</li>
+          </ol>
+        </section>
+
+      </div>
+    </article>
+  </div>
+</BaseLayout>

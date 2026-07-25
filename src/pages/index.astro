@@ -11,68 +11,84 @@ const last_posts = posts.slice(0, 3);
 
 <BaseLayout sideBarActiveItemID="home">
   <div class="pb-12 mt-5">
-    <div class="text-xl py-1">Hey there 👋</div>
-    <div class="text-5xl font-bold">I'm Manuel Ernesto</div>
-    <div class="text-3xl py-3 font-bold">Software Engineer and Entrepreneur</div>
+    <div class="text-xl py-1 font-medium">Hey there 👋</div>
+    <div class="text-5xl font-bold">I'm Aaron Kyle Villegas</div>
+    <div class="text-3xl py-3 font-bold text-primary">Data Scientist & Quantitative Analyst</div>
     <div class="py-2">
-      <text class="text-lg">
-        This is <b>Astrofy</b> a free and open-source template for your Personal Portfolio Website built with Astro and TailwindCSS.
-        Create in minutes a website with Blog, CV, Project Section, Store and RSS Feed. I hope you find
-        it useful!
+      <text class="text-lg leading-relaxed">
+        Applied Mathematics graduate specializing in data science, predictive modeling, machine learning, and statistical analysis. Experienced in building automated ETL pipelines, financial risk models, and interactive analytics dashboards.
       </text>
     </div>
-    <div class="mt-8">
-      <a class="btn" href="https://twitter.com/manuelernestog" target="_blank"> Let's connect!</a>
-      <a href="https://github.com/manuelernestog/astrofy" target="_blank" class="btn btn-outline ml-5">
-        Get This template
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a class="btn btn-primary" href="https://github.com/AaronVillegas5" target="_blank">
+        GitHub Profile ↗
+      </a>
+      <a href="/cv" class="btn btn-outline">
+        View Resume / CV
       </a>
     </div>
   </div>
 
   <div>
-    <div class="text-3xl w-full font-bold mb-2">My last projects {"</>"}</div>
+    <div class="text-3xl w-full font-bold mb-5">Featured Projects {"</>"}</div>
   </div>
 
   <HorizontalCard
-    title="Demo Project 1"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="NEW"
+    title="Environmental Health Risk Mapping Platform"
+    img="/env-risk-map.webp"
+    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
+    url="https://github.com/AaronVillegas5/environmental-health-risk-map"
+    badge="Datathon Winner"
+    tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 2"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
+    title="Walmart Sales & Demand Analytics"
+    img="/walmart-analytics.webp"
+    desc="Automated reporting and analytics pipelines evaluating business KPIs across retail locations. Uncovered a 69% holiday sales lift and evaluated store-level demand volatility using Coefficient of Variation (CV) for inventory planning."
+    url="https://github.com/AaronVillegas5/walmart_data_analysis"
+    badge="Data Analytics"
+    tags={["Python", "SQL", "Tableau", "Pandas", "Demand Planning"]}
+    custom_links={[
+      { text: "📊 Tableau Dashboard", url: "https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard", target: "_blank", primary: true }
+    ]}
   />
   <div class="divider my-0"></div>
   <HorizontalCard
-    title="Demo Project 3"
-    img="/post_img.webp"
-    desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-    url="#"
-    badge="FOSS"
+    title="Deriving & Understanding the Black-Scholes Option Pricing Model"
+    img="/black-scholes.webp"
+    desc="Quantitative research paper deriving the Black-Scholes PDE using Itô's Lemma, Geometric Brownian Motion, and dynamic delta hedging. Evaluated risk-neutral measures, martingales, and stochastic volatility limitations."
+    url="/projects/black-scholes-paper"
+    target="_self"
+    badge="Research Paper"
+    tags={["Quantitative Finance", "Stochastic Calculus", "LaTeX", "Option Pricing"]}
+    custom_links={[
+      { text: "📄 Preview Paper", url: "/projects/black-scholes-paper", target: "_self", primary: true },
+      { text: "📥 Download PDF", url: "/black-scholes-paper.pdf", target: "_blank" }
+    ]}
   />
-
-  <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
-  </div>
 
   {
-    last_posts.map((post) => (
+    last_posts.length > 0 && (
       <>
-        <HorizontalCard
-          title={post.data.title}
-          img={post.data.heroImage}
-          desc={post.data.description}
-          url={"/blog/" + createSlug(post.data.title, post.slug)}
-          target="_self"
-          badge={post.data.badge}
-        />
-        <div class="divider my-0" />
+        <div>
+          <div class="text-3xl w-full font-bold mb-5 mt-10">Latest from blog</div>
+        </div>
+
+        {last_posts.map((post) => (
+          <>
+            <HorizontalCard
+              title={post.data.title}
+              img={post.data.heroImage}
+              desc={post.data.description}
+              url={"/blog/" + createSlug(post.data.title, post.slug)}
+              target="_self"
+              badge={post.data.badge}
+            />
+            <div class="divider my-0" />
+          </>
+        ))}
       </>
-    ))
+    )
   }
 </BaseLayout>

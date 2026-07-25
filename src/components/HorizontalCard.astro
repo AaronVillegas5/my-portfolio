@@ -1,43 +1,85 @@
 ---
-const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
+const { title, img, desc, url, badge, tags, target = "_blank", custom_links = [] } = Astro.props;
 import { Image } from "astro:assets";
-const tag_url = url.split("/").slice(0, -1).join("/") + "/tag";
 ---
 
 <div
-  class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[102%]"
+  class="rounded-lg bg-base-100 hover:shadow-xl transition ease-in-out hover:scale-[101%] border border-base-200/50 p-4 md:p-5 my-3"
 >
-  <a href={url} target={target}>
-    <div class="hero-content flex-col md:flex-row">
-      {
-        img && (
+  <div class="flex flex-col md:flex-row gap-5 items-start md:items-center">
+    {
+      img && (
+        <a href={url} target={target} class="shrink-0 w-full md:w-48 overflow-hidden rounded-lg">
           <Image
             src={img}
             width={750}
             height={422}
             format="webp"
             alt={title}
-            class="max-w-full md:max-w-[13rem] rounded-lg"
+            class="w-full md:w-48 h-32 object-cover rounded-lg hover:scale-105 transition ease-in-out duration-300"
           />
-        )
-      }
-      <div class="grow w-full">
-        <h1 class="text-xl font-bold">
-          {title}
-          {badge && <div class="badge badge-secondary mx-2">{badge}</div>}
-        </h1>
-        <p class="py-1 text-1xl">{desc}</p>
-        <div class="card-actions justify-end">
+        </a>
+      )
+    }
+    <div class="grow w-full flex flex-col justify-between">
+      <div>
+        <div class="flex items-center flex-wrap gap-2 mb-1">
+          <a href={url} target={target} class="text-xl font-bold hover:text-primary transition-colors">
+            {title}
+          </a>
+          {badge && <div class="badge badge-secondary">{badge}</div>}
+        </div>
+        <p class="py-1 text-base text-base-content/80">{desc}</p>
+      </div>
+
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mt-4 pt-3 border-t border-base-200">
+        <div class="flex flex-wrap gap-1.5">
           {
             tags &&
               tags.map((tag) => (
-                <a href={`${tag_url}/${tag}`} class="badge badge-outline">
+                <span class="badge badge-outline text-xs">
                   {tag}
-                </a>
+                </span>
               ))
+          }
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          {
+            url && url !== "#" && (
+              <a
+                href={url}
+                target={target}
+                class="btn btn-sm btn-outline gap-1.5"
+              >
+                {url.includes("github.com") ? (
+                  <>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="w-4 h-4" viewBox="0 0 16 16">
+                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                    </svg>
+                    GitHub
+                  </>
+                ) : url.endsWith(".pdf") ? (
+                  <>📥 Download PDF</>
+                ) : (
+                  <>View Project ↗</>
+                )}
+              </a>
+            )
+          }
+          {
+            custom_links && custom_links.map((link) => (
+              <a
+                href={link.url}
+                target={link.target || "_blank"}
+                class={`btn btn-sm ${link.primary ? 'btn-primary' : 'btn-outline'} gap-1`}
+              >
+                {link.text}
+              </a>
+            ))
           }
         </div>
       </div>
     </div>
-  </a>
+  </div>
 </div>
