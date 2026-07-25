@@ -75,7 +75,43 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
       </ul>
     </TimeLineElement>
   </div>
+<!-- Featured Projects Teaser -->
+  <div class="mb-5">
+    <div class="flex justify-between items-end border-b pb-2">
+      <div class="text-3xl font-bold">Key Technical Projects</div>
+      <a href="/projects" class="text-sm text-primary hover:underline">View All Projects & Demos →</a>
+    </div>
+  </div>
 
+  <div class="grid gap-3 mb-10 text-sm">
+    <div class="p-3 bg-base-200 rounded-lg">
+      <div class="font-bold">
+        <a href="/projects" class="hover:underline text-primary">Environmental Health Risk Mapping Platform</a> 
+        <span class="badge badge-sm badge-secondary ml-2">Datathon Winner</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1">
+        XGBoost model & FastAPI backend predicting health risks for 700+ ZIP codes with spatial analysis.
+      </p>
+    </div>
+
+    <div class="p-3 bg-base-200 rounded-lg">
+      <div class="font-bold">
+        <a href="/projects" class="hover:underline text-primary">Macroeconomic Time-Series Data Pipeline</a>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1">
+        Multi-source ETL pipeline ingesting financial/weather APIs into PostgreSQL, BigQuery, and Snowflake with AWS S3 raw logging.
+      </p>
+    </div>
+
+    <div class="p-3 bg-base-200 rounded-lg">
+      <div class="font-bold">
+        <a href="/projects" class="hover:underline text-primary">Walmart Sales Data Analysis & Demand Analytics</a>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1">
+        Python/SQL reporting pipeline evaluating store-level demand volatility (CV) and holiday sales lift for inventory planning.
+      </p>
+    </div>
+  </div>
   <!-- Honors & Awards -->
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Honors & Awards</div>
