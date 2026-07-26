@@ -45,16 +45,19 @@
     const saved = localStorage.getItem('portfolio-theme') || 'emerald';
     applyTheme(saved);
 
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.theme-btn').forEach(function(btn) {
-        btn.addEventListener('click', function(e) {
-          e.preventDefault();
-          const val = btn.getAttribute('data-theme-value');
-          if (val) {
-            applyTheme(val);
+    // Document event delegation ensures click handlers work immediately without waiting for DOMContentLoaded
+    document.addEventListener('click', function(e) {
+      const btn = e.target.closest ? e.target.closest('.theme-btn') : null;
+      if (btn) {
+        e.preventDefault();
+        const val = btn.getAttribute('data-theme-value');
+        if (val) {
+          applyTheme(val);
+          if (document.activeElement && typeof document.activeElement.blur === 'function') {
+            document.activeElement.blur();
           }
-        });
-      });
+        }
+      }
     });
 
     document.addEventListener('astro:after-swap', function() {

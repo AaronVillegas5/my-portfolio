@@ -1,7 +1,7 @@
 ---
 title: "Environmental Health Risk Mapping Platform"
 description: "Interactive geospatial dashboard predicting asthma and cardiovascular risks across Southern California ZIP codes using XGBoost, Neural Networks, and FastAPI."
-pubDate: "Apr 20 2026"
+pubDate: "May 18 2026"
 heroImage: "/env-risk-map.webp"
 badge: "Datathon Winner"
 tags: ["XGBoost", "FastAPI", "Spatial Analysis", "Python", "Machine Learning"]
