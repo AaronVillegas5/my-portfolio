@@ -5,7 +5,6 @@
 /* -------------------------------------------------------------
    🌲 1. DEEP EMERALD & SAGE (DEFAULT THEME)
    ------------------------------------------------------------- */
-:root,
 html[data-theme="emerald"],
 body[data-theme="emerald"] {
   --b1: 140 25% 96%;   /* Canvas: #f2f7f4 (Soft Sage) */
@@ -100,6 +99,12 @@ html[data-theme="blue"] .btn-primary:hover {
    ------------------------------------------------------------- */
 html[data-theme="light"],
 body[data-theme="light"] {
+  --b1: 0 0% 100%;
+  --b2: 210 40% 98%;
+  --b3: 214 32% 91%;
+  --p: 222 47% 11%;
+  --bc: 215 25% 27%;
+
   background-color: #ffffff !important;
   color: #1e293b !important;
 }
@@ -134,6 +139,12 @@ html[data-theme="light"] .btn-primary {
    ------------------------------------------------------------- */
 html[data-theme="dark"],
 body[data-theme="dark"] {
+  --b1: 222 47% 11%;
+  --b2: 217 33% 17%;
+  --b3: 215 25% 27%;
+  --p: 199 89% 48%;
+  --bc: 210 40% 98%;
+
   background-color: #0f172a !important;
   color: #f8fafc !important;
 }
@@ -167,4 +178,35 @@ html[data-theme="dark"] .btn-primary {
 html[data-theme="dark"] .text-base-content\/80,
 html[data-theme="dark"] .text-base-content\/90 {
   color: #cbd5e1 !important;
+}
+
+/* 📜 Single-Line DaisyUI Tab Formatting & Code Scrolling */
+.tabs {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+  flex-wrap: nowrap !important;
+}
+
+.tabs .tab,
+.tabs button.tab,
+.tabs input.tab {
+  white-space: nowrap !important;
+  word-break: keep-all !important;
+  height: auto !important;
+  min-height: 2.5rem !important;
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+  font-size: 0.875rem !important;
+  flex-shrink: 0 !important;
+}
+
+.tab-content,
+.tab-content > div {
+  max-width: 100% !important;
+  overflow-x: auto !important;
+}
+
+pre, code {
+  max-width: 100% !important;
+  overflow-x: auto !important;
 }

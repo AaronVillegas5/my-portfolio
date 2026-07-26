@@ -1,0 +1,29 @@
+---
+export interface Metric {
+  label: string;
+  value: string;
+  subtext?: string;
+  badge?: string;
+}
+
+export interface Props {
+  metrics: Metric[];
+}
+
+const { metrics = [] } = Astro.props;
+---
+
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 my-6">
+  {
+    metrics.map((item) => (
+      <div class="p-4 bg-base-200/70 rounded-xl border border-base-300 shadow-sm flex flex-col justify-between hover:border-primary/50 transition-colors">
+        <div class="flex justify-between items-start gap-2 mb-1">
+          <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">{item.label}</span>
+          {item.badge && <span class="badge badge-secondary badge-sm">{item.badge}</span>}
+        </div>
+        <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">{item.value}</div>
+        {item.subtext && <p class="text-xs text-base-content/80 mt-1 leading-normal">{item.subtext}</p>}
+      </div>
+    ))
+  }
+</div>
