@@ -9,20 +9,20 @@ tags: ["XGBoost", "FastAPI", "Spatial Analysis", "Python", "Machine Learning"]
 
 ## Executive Summary
 
-Environmental health risk is not evenly distributed across Southern California. High-risk communities often remain invisible in raw, unaggregated datasets. **Healthy Home Audit** was built during Datathon 2026 to bridge this gap—making complex environmental risk factors accessible, visual, and actionable for residents, policy makers, and health researchers.
+Environmental health risk is not evenly distributed across Southern California. High-risk communities often remain invisible in raw, unaggregated datasets. **Healthy Home Audit** was built during Datathon 2026 to bridge this gap by making environmental risk factors visual and interpretable for residents and health researchers.
 
 Out of 39 competing teams, this platform won **"Best Visualization"** for its interactive mapping capabilities, multi-factorial risk scoring, and real-time machine learning inference engine.
 
 ---
 
-## 🖥 Interactive Geospatial Dashboard & Live Demo
+## Interactive Geospatial Dashboard & Live Demo
 
-The platform visualizes environmental health risk across **8,000+ census tracts and 700+ Southern California ZIP codes**, color-coding markers by burden level (green → red) and allowing users to inspect localized health indicators, demographics, and actionable exposure-reduction tips.
+The platform visualizes environmental health risk across **8,000+ census tracts and 700+ Southern California ZIP codes**, color-coding markers by burden level (green to red) and allowing users to inspect localized health indicators, demographics, and practical exposure-reduction guidance.
 
 ![Environmental Health Risk Heatmap](/env-risk-map.webp)
 
-* 🌐 **Live Web App:** [environmental-health-risk-map.vercel.app](https://environmental-health-risk-map.vercel.app)
-* 💻 **GitHub Repository:** [AaronVillegas5/environmental-health-risk-map](https://github.com/AaronVillegas5/environmental-health-risk-map)
+* Live Web App: [environmental-health-risk-map.vercel.app](https://environmental-health-risk-map.vercel.app)
+* GitHub Repository: [AaronVillegas5/environmental-health-risk-map](https://github.com/AaronVillegas5/environmental-health-risk-map)
 
 ---
 

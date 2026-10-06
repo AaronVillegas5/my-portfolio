@@ -114,7 +114,7 @@ print(f"Z-statistic: {z_stat:.4f}")
 print(f"p-value: {p_value:.4e}")
 
 if p_value < 0.05:
-    print("Decision: Reject H0 — Significant conversion lift observed.")
+    print("Decision: Reject H0: Significant conversion lift observed.")
 ```
 
     </div>
