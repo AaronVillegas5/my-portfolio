@@ -17,7 +17,7 @@ Out of 39 competing teams, this platform won **"Best Visualization"** for its in
 
 ## Interactive Geospatial Dashboard & Live Demo
 
-The platform visualizes environmental health risk across **8,000+ census tracts and 700+ Southern California ZIP codes**, color-coding markers by burden level (green to red) and allowing users to inspect localized health indicators, demographics, and practical exposure-reduction guidance.
+The platform maps environmental health risk using **CalEnviroScreen 4.0 data for all 8,035 California census tracts**, scored by ZIP code. It focuses on Southern California, and its top-10 ranking covers Los Angeles and Orange counties. Markers are color-coded by burden level (green to red), and users can inspect localized health indicators, demographics, and practical exposure-reduction guidance.
 
 ![Environmental Health Risk Heatmap](/env-risk-map.webp)
 
@@ -30,8 +30,8 @@ The platform visualizes environmental health risk across **8,000+ census tracts 
 
 | Metric / Indicator | Project Detail |
 | :--- | :--- |
-| **Datathon Award** | 🏆 Winner: Best Visualization (1st out of 39 teams) |
-| **Geographic Scope** | 700+ ZIP codes / 8,000+ Census Tracts (Southern California) |
+| **Datathon Award** | 🏆 Winner: Best Visualization (39 teams competed) |
+| **Data Scope** | 8,035 California census tracts (CalEnviroScreen 4.0), scored by ZIP code; top-10 ranking covers Los Angeles and Orange counties |
 | **Primary ML Models** | XGBoost (Asthma), XGBoost (Cardiovascular), Neural Network (Toxic Release) |
 | **Core Composite Metric** | Health Vulnerability Index (HVI) |
 | **Backend API** | FastAPI (Uvicorn server) deployed on Render |
@@ -41,7 +41,7 @@ The platform visualizes environmental health risk across **8,000+ census tracts 
 
 ## 💡 Health Vulnerability Index (HVI) Breakdown
 
-To provide a single comprehensive risk metric, we engineered the **Health Vulnerability Index (HVI)**, combining normalized weights across three key domains:
+To provide a single comprehensive risk metric, we engineered the **Health Vulnerability Index (HVI)**, averaging three normalized domains with equal weight:
 
 1. **Pollution Burden:** Air quality metrics (PM2.5, Ozone), diesel particulate matter, traffic density, and toxic chemical releases.
 2. **Health Outcomes:** Pre-existing incidence rates for asthma emergency department visits, cardiovascular disease, and low birth weight.
@@ -57,38 +57,33 @@ To provide a single comprehensive risk metric, we engineered the **Health Vulner
 
 ---
 
-## 🛠 Actual Technical Implementation & Code Highlights (From GitHub)
+## 🛠 Code Highlights (Simplified Excerpts From GitHub)
 
 ### 1. Composite Health Vulnerability Index (HVI) Calculation (`health_index_score.py`)
-Below is the actual column definition and feature aggregation used in our Python backend to calculate normalized health index scores across census tracts:
+Below is an excerpt of how the backend normalizes the CalEnviroScreen columns and averages them into the HVI (`health_index_score.py`, trimmed for length):
 
 ```python
-import pandas as pd
-from pathlib import Path
-from sklearn.preprocessing import MinMaxScaler
-
 # Feature domain columns from CalEnviroScreen 4.0
 HEALTH_COLS = ["Asthma Pctl", "Cardiovascular Disease Pctl", "Low Birth Weight Pctl"]
-ENV_COLS    = ["Pollution Burden Score"]
-SDOH_COLS   = ["Education Pctl", "Poverty Pctl", "Linguistic Isolation Pctl", "Unemployment Pctl", "Housing Burden Pctl"]
-
+ENV_COLS = ["Pollution Burden Score"]
+SDOH_COLS = ["Education Pctl", "Poverty Pctl", "Linguistic Isolation Pctl", "Unemployment Pctl", "Housing Burden Pctl"]
 ALL_COLS = HEALTH_COLS + ENV_COLS + SDOH_COLS
 
-def compute_hvi_for_zips(df):
-    """Normalizes health, environmental, and SDOH percentile features to produce HVI score."""
-    scaler = MinMaxScaler()
-    df[ALL_COLS] = scaler.fit_transform(df[ALL_COLS])
-    
-    # Weighted domain aggregation
-    df['health_subscore'] = df[HEALTH_COLS].mean(axis=1)
-    df['env_subscore']    = df[ENV_COLS].mean(axis=1)
-    df['sdoh_subscore']   = df[SDOH_COLS].mean(axis=1)
-    
-    df['HVI_Score'] = (0.4 * df['health_subscore']) + (0.3 * df['env_subscore']) + (0.3 * df['sdoh_subscore'])
-    return df
+# Mean imputation for missing values, then min-max scaling
+df[ALL_COLS] = df[ALL_COLS].fillna(df[ALL_COLS].mean(axis=0))
+scaler = MinMaxScaler()
+df_scaled = df.copy()
+df_scaled[ALL_COLS] = scaler.fit_transform(df[ALL_COLS])
+
+# Domain subscores, averaged with equal weight into the HVI
+df_scaled["Health Subscore"] = df_scaled[HEALTH_COLS].mean(axis=1)
+df_scaled["Environment Subscore"] = df_scaled[ENV_COLS].mean(axis=1)
+df_scaled["SDOH Subscore"] = df_scaled[SDOH_COLS].mean(axis=1)
+df_scaled["HVI"] = df_scaled[["Health Subscore", "Environment Subscore", "SDOH Subscore"]].mean(axis=1)
+df_scaled["HVI_Pctl"] = df_scaled["HVI"].rank(pct=True) * 100
 ```
 
-### 2. Multi-Model Inference & Percentile Rankings (`backend/main.py`)
+### 2. Multi-Model Inference & Percentile Rankings (`backend/main.py`, simplified)
 Our production FastAPI backend loads both pre-trained XGBoost models (`best_xgb_model.pkl` & `cardiovascular_model.pkl`) to calculate real-time asthma and cardiovascular risk predictions along with state/county percentile rankings:
 
 ```python
