@@ -27,21 +27,21 @@ tags: ["Python", "SQL", "Tableau", "Pandas", "Retail Analytics"]
 </div>
 
 ## Executive Summary
-This project analyzes two years of weekly sales data across 45 Walmart stores to identify key drivers of revenue, seasonal demand spikes, and store-level volatility. By evaluating the relationship between historical sales and external economic indicators (CPI, fuel prices, unemployment, and temperature), this analysis provides actionable, data-driven recommendations to optimize inventory planning, staffing allocation, and localized sales forecasting.
+This project analyzes two years of weekly sales data across 45 Walmart stores to identify revenue drivers, holiday demand spikes, and store-level volatility. By evaluating the relationship between historical sales and external economic indicators (CPI, fuel prices, unemployment, and temperature), this analysis evaluates inventory thresholds, holiday staffing requirements, and localized sales patterns.
 
 ---
 
-## 🖥 Interactive Tableau Dashboard
+## Interactive Tableau Dashboard
 
-I designed a comprehensive Tableau dashboard tracking core business KPIs (YoY growth, demand variability, and store rankings) to directly support executive inventory planning and staffing decisions.
+I built a Tableau dashboard tracking YoY growth, store demand variability, and revenue rankings.
 
 ![Walmart Sales Dashboard](/walmart-analytics.webp)
 
-[**Click here to view the interactive Tableau Dashboard**](https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard)
+[**View the interactive Tableau Dashboard**](https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard)
 
 ---
 
-## 📊 Key Performance Indicators (KPIs)
+## Key Performance Indicators (KPIs)
 
 | Metric | Value |
 | :--- | :--- |
@@ -54,22 +54,22 @@ I designed a comprehensive Tableau dashboard tracking core business KPIs (YoY gr
 
 ---
 
-## 💡 Business Insights & Supply Chain Impact
+## Business Insights & Supply Chain Impact
 
 * **Seasonal Demand Spikes:** Holiday weeks drive a baseline 7.84% increase in sales, but Christmas week acts as a massive outlier, generating a **69% revenue lift** compared to non-holiday weeks. 
 * **Revenue Concentration:** Sales are heavily skewed, with the top 5 performing stores (Stores 20, 4, 14, 13, and 2) generating over **22% of total revenue**.
 * **Store-Level Volatility (Risk Assessment):** Variance is an important factor in forecasting sales. Standard deviation is misleading for stores with different baselines, so I measured risk using the **Coefficient of Variation (CV)**. Stores 35, 7, 15, 29, and 23 exhibited the highest relative volatility, representing higher risk for overstock or stockouts.
-* **Local Economic Sensitivity:** Across the entire network, external factors (Temp, Fuel, CPI, Unemployment) showed near-zero linear correlation with sales. However, isolating the data by store revealed that *specific* locations are highly sensitive to these external factors, indicating that broad national models are insufficient for accurate local forecasting.
+* **Local Economic Sensitivity:** Across the entire network, external factors (Temp, Fuel, CPI, Unemployment) showed near-zero linear correlation with sales. However, isolating the data by store revealed that *specific* locations are sensitive to these external factors, indicating that broad national models are insufficient for accurate local forecasting.
 
-## 🎯 Actionable Recommendations
+## Recommendations
 
-1. **Dynamic Inventory Allocation:** Transition highly volatile stores (highest CV/variance) to a more flexible inventory strategy to lower risks of low stock, while keeping fixed inventory models for the most consistent stores (Stores 31, 44, 43, 30, and 37).
-2. **Localized Forecasting Models:** Shift away from national macroeconomic forecasting. Incorporate store-specific weather and economic data into localized machine learning models to improve week-over-week demand prediction accuracy.
-3. **Strategic Holiday Staffing:** Scale staffing and logistics significantly during the week of December 19-25, which independently drives the massive 69% seasonal lift.
+1. **Flexible Inventory Allocation:** Transition volatile stores (highest CV/variance) to flexible buffer stocks to reduce stockout risks, while maintaining steady replenishment cycles for consistent stores (Stores 31, 44, 43, 30, and 37).
+2. **Localized Forecasting Models:** Shift away from one-size-fits-all national forecasting. Incorporate store-specific weather and economic indicators into local regression and time-series models.
+3. **Holiday Staffing:** Scale warehouse logistics and floor staffing for the third week of December, which drives the 69% sales surge.
 
 ---
 
-## 🛠 Interactive Code Highlights & Technical Implementation
+## Code Highlights
 
 <div class="my-6 rounded-xl border border-base-300 bg-base-200/40 p-4 shadow-sm">
   <div role="tablist" class="tabs tabs-lifted">
