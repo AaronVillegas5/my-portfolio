@@ -16,7 +16,7 @@ tags: ["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas"]
   </div>
   <div class="p-4 bg-base-200/80 rounded-xl border border-base-300 shadow-sm flex flex-col justify-between">
     <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">Conversion Lift</span>
-    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">+0.76% Lift</div>
+    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">+0.76 pp Lift</div>
     <p class="text-xs text-base-content/80 mt-1">2.55% Ad Group vs 1.79% PSA Group</p>
   </div>
   <div class="p-4 bg-base-200/80 rounded-xl border border-base-300 shadow-sm flex flex-col justify-between">
@@ -30,7 +30,7 @@ tags: ["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas"]
 
 Digital advertising decisions require rigorous statistical validation to distinguish genuine campaign lifts from random baseline variation. This project conducts a comprehensive end-to-end A/B test analysis on a **588,000-user marketing dataset**, evaluating whether showing an advertisement (treatment group) yields a statistically significant increase in user purchase conversions compared to a Public Service Announcement (control PSA group).
 
-By implementing pre-test power analysis, a two-proportion z-test, and 95% confidence interval estimation, the analysis proves a **statistically significant 0.7% conversion lift** for the ad group ($p < 0.05$).
+By implementing pre-test power analysis, a two-proportion z-test, and 95% confidence interval estimation, the analysis proves a **statistically significant 0.76 percentage-point conversion lift** (1.79% to 2.55%) for the ad group ($p < 0.001$).
 
 ---
 
@@ -53,7 +53,7 @@ The experiment compares ~564,000 treatment users (Ad) against ~24,000 control us
 | **Control Group (PSA)** | 23,524 users (~4%) |
 | **Ad Group Conversion Rate** | 2.55% |
 | **PSA Group Conversion Rate** | 1.79% |
-| **Absolute Conversion Lift** | **+0.76%** |
+| **Absolute Conversion Lift** | **+0.76 percentage points** |
 | **Statistical Significance** | **$p < 0.001$** (Reject $H_0$) |
 | **95% Confidence Interval** | $[0.0059, 0.0093]$ (Difference in proportions) |
 
@@ -62,7 +62,7 @@ The experiment compares ~564,000 treatment users (Ad) against ~24,000 control us
 ## 💡 Key Business Insights
 
 * **Statistically Significant Lifts:** The treatment group achieved a $2.55\%$ conversion rate compared to $1.79\%$ for the control group. A two-proportion z-test yielded a $p$-value well below $\alpha = 0.05$, confirming the lift is not due to sampling noise.
-* **Massive Business Impact at Scale:** While an absolute lift of $+0.76\%$ may appear modest, applying this lift across $500,000+$ impression targets generates thousands of incremental conversions and substantial revenue gains.
+* **Massive Business Impact at Scale:** While an absolute lift of $+0.76$ percentage points may appear modest, applying this lift across $500,000+$ impression targets generates thousands of incremental conversions and substantial revenue gains.
 * **Unequal Sample Ratio Validation:** Power analysis confirmed that despite the 96/4 group split, both sample sizes exceeded the minimum statistical threshold required for $80\%$ statistical power at $\alpha = 0.05$.
 
 ---

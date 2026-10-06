@@ -27,13 +27,11 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <!-- 2. Multi-Echelon Replenishment & Stockout Risk Simulator -->
   <HorizontalCard
     title="Multi-Echelon Replenishment & Stockout Risk Simulator"
+    img="/replenishment-simulator.webp"
     desc="Interactive supply chain simulator that models safety stock, reorder points, and lead-time variability across 50,000+ orders. Uses DuckDB for sub-second local SQL queries without database overhead, SciPy Monte Carlo simulations to calculate stockout risks under demand spikes, and Streamlit/Plotly for scenario testing."
     url="https://github.com/AaronVillegas5/supply-chain-replenishment-simulator"
     badge="Inventory Analytics"
     tags={["Python", "DuckDB", "SciPy", "Streamlit", "Plotly", "Monte Carlo"]}
-    custom_links={[
-      { text: "GitHub", url: "https://github.com/AaronVillegas5/supply-chain-replenishment-simulator", target: "_blank" }
-    ]}
   />
   <div class="divider my-0"></div>
 
@@ -41,7 +39,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <HorizontalCard
     title="Macroeconomic & Climate Analytics Platform (Macro Data Pipeline)"
     img="/macro-pipeline.webp"
-    desc="Data platform that ingests 9M+ time-series records from FRED, Open-Meteo, and US Census Retail APIs into PostgreSQL and BigQuery. Orchestrated daily with Apache Airflow in Docker and modeled in BigQuery with dbt. Features a SARIMAX forecasting engine for retail trends and a FastAPI backend with a Gemini agent that writes and runs BigQuery SQL queries from plain-English questions."
+    desc="Data platform that ingests 9M+ time-series records from FRED, Open-Meteo, and US Census Retail APIs into PostgreSQL and BigQuery. Orchestrated daily with Apache Airflow in Docker and modeled in BigQuery with dbt. Features a SARIMAX forecasting engine for retail trends and a FastAPI backend with a Gemini agent that answers plain-English questions using four BigQuery query tools."
     url="/blog/macro-data-pipeline"
     badge="Data Engineering"
     tags={["Python", "Apache Airflow", "dbt", "BigQuery", "Snowflake", "PostgreSQL", "Docker", "FastAPI", "SARIMAX"]}
@@ -82,7 +80,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <HorizontalCard
     title="Environmental Health Risk Mapping Platform"
     img="/env-risk-map.webp"
-    desc="Won 1st Place for Best Visualization out of 39 teams. Blended CalEnviroScreen, EPA, and census data across 700+ California ZIP codes into a composite Health Vulnerability Index. Trained XGBoost models to predict respiratory and cardiac risk factors, deployed behind a FastAPI service for real-time risk scores and nearest-neighbor lookups."
+    desc="Won Best Visualization out of 39 teams. Blended CalEnviroScreen, EPA, and census data covering 8,000+ California census tracts into a composite Health Vulnerability Index. Trained XGBoost models to predict respiratory and cardiac risk factors, deployed behind a FastAPI service for real-time risk scores and nearest-neighbor lookups."
     url="/blog/environmental-health-risk-map"
     badge="Datathon Winner"
     tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
@@ -111,7 +109,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <HorizontalCard
     title="A/B Testing Analysis of Digital Marketing Campaigns"
     img="/ab-testing.webp"
-    desc="Statistical hypothesis testing on 588,000+ customer records. Used unequal-group power analysis and two-proportion z-tests to measure conversion differences, validating a statistically significant 0.7% conversion lift (p < 0.05) to guide advertising spend."
+    desc="Statistical hypothesis testing on 588,000+ customer records. Used unequal-group power analysis and two-proportion z-tests to measure conversion differences, validating a statistically significant 0.76 percentage-point conversion lift (1.79% to 2.55%, p < 0.001) to guide advertising spend."
     url="/blog/ab-test-marketing-campaign"
     badge="A/B Testing"
     tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas", "Seaborn"]}
