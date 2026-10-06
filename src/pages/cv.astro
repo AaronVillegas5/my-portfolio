@@ -3,29 +3,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import TimeLineElement from "../components/cv/TimeLine.astro";
 ---
 
-<BaseLayout title="Resume / CV | Aaron Kyle Villegas" sideBarActiveItemID="cv">
-  <!-- Prominent Download Resume Button & Profile Header -->
-  <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6 pb-4 border-b border-base-300">
-    <div>
-      <div class="text-3xl font-extrabold tracking-tight">Aaron Kyle Villegas</div>
-      <div class="text-sm font-semibold text-primary mt-1">Data Analyst | Business Intelligence | SQL, Python</div>
-    </div>
-    <a 
-      href="/Resume.pdf" 
-      target="_blank" 
-      download="Aaron_Kyle_Villegas_Resume.pdf"
-      class="btn btn-primary gap-2 shadow-md hover:shadow-lg transition-all hover:scale-105"
-    >
-      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-        <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-        <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-      </svg>
-      <span>Download Official PDF Resume</span>
+<BaseLayout title="Resume | Aaron Kyle Villegas" sideBarActiveItemID="cv">
+  <!-- Download Resume Button & Profile Header -->
+  <div class="flex justify-between items-center mb-5">
+    <div class="text-3xl font-bold">Profile</div>
+    <a href="/Resume.pdf" target="_blank" class="btn btn-outline btn-primary btn-sm md:btn-md">
+      Download PDF Resume
     </a>
   </div>
 
   <div class="mb-10 text-justify text-base leading-relaxed">
-    Applied Mathematics graduate specializing in data analytics, business intelligence, ETL processes, and KPI reporting to uncover actionable retail trends. Highly skilled in translating complex data into business strategies using SQL, Python, and Tableau. Based in Bentonville, Arkansas.
+    I'm an Applied Math grad from UC Irvine, living in Northwest Arkansas. I build data pipelines, forecasting models, and dashboards, mostly in Python and SQL. Right now I'm a software development intern at HUMN Solutions, working on a daily AI newsletter pipeline.
   </div>
 
   <!-- Education -->
@@ -35,10 +23,11 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="Bachelor of Science in Applied and Computational Mathematics (Specialization in Data Science)"
-      subtitle="Graduated June 2026 at University of California, Irvine — Irvine, CA"
+      title="B.S. in Applied and Computational Mathematics (Specialization in Data Science)"
+      subtitle="Graduated June 2026 at University of California, Irvine - Irvine, CA"
     >
-      <p class="font-semibold text-sm mb-1 text-primary">GPA: 3.91 | Dean's Honor List | Recipient of Howard Tucker Award in Mathematics | Cum Laude</p>
+      <p class="font-semibold text-sm mb-1 text-primary">GPA: 3.911 | Cum Laude | Recipient of Howard Tucker Award in Mathematics | 9x Dean's Honor List</p>
+      <p class="text-sm text-base-content/90"><b>Relevant Coursework & Grades:</b> Mathematical Machine Learning (A+), Statistical Methods for Data I & II (A / A+), Optimization I & II (A / A+), Financial Derivatives & Fixed Income (A+), Intro to Data Science Programming (A+), Linear Algebra I & II (A), Numerical Analysis I & II (A), Probability I & II (A / B+)</p>
     </TimeLineElement>
   </div>
 
@@ -49,127 +38,36 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
 
   <div class="time-line-container mb-10">
     <TimeLineElement
-      title="AI Benchmark Engineering Fellow"
-      subtitle="July 2026 at Handshake AI — Remote"
+      title="Software Development Intern"
+      subtitle="September 2026 to Present at HUMN Solutions (Align AI), through the Apprenticely program"
     >
       <ul class="list-disc ml-4 text-sm grid gap-1.5">
-        <li>Developed robust testing frameworks to identify data anomalies (e.g., time zone shifts, unit glitches), ensuring the integrity of downstream ETL pipelines and executive BI reports.</li>
-        <li>Developed an automated Python verification suite utilizing statistical analysis to evaluate data accuracy and maintain strict reporting tolerances.</li>
+        <li>Built and run The Frontier Brief, a daily AI newsletter: it collects sources each morning, drafts and reviews the edition, emails it to subscribers, and posts it to a public archive.</li>
+        <li>After a code review, added delivery safeguards so a failed or repeated run can't skip a day or send twice: a delivery marker, automatic retries, and an email alert when an edition is missing.</li>
+        <li>Wrote 440+ automated tests, including checks that catch repeated wording and inconsistent product names before an edition goes out.</li>
+        <li>Set up the daily scheduler on Google Cloud (Cloud Scheduler and Cloud Functions) to replace the Cloudflare one.</li>
       </ul>
     </TimeLineElement>
 
     <TimeLineElement
-      title="Jane Street Summer Program Student — Quantitative Finance / Trading"
-      subtitle="June 2023 to July 2023 at Jane Street — NYC"
+      title="AI Benchmark Engineering Fellow"
+      subtitle="July 2026 to August 2026 at Handshake AI (Remote)"
     >
       <ul class="list-disc ml-4 text-sm grid gap-1.5">
-        <li>Selected for competitive quantitative finance program; developed and optimized a Python-based trading strategy with a team in a simulated environment, finishing in the top 25%.</li>
+        <li>Benchmarked frontier AI models on quantitative problem solving and telemetry analysis by designing multi-step evaluation prompts and writing Python reference solutions to verify deterministic outputs.</li>
+        <li>Programmatically injected data anomalies (time zone shifts, unit glitches, multi-day sensor drift) into test data to evaluate model error-detection capabilities.</li>
+        <li>Built automated pytest test suites using local OLS detrending and nan-median aggregation to evaluate model outputs against numerical tolerances, reducing manual test triage.</li>
       </ul>
     </TimeLineElement>
-  </div>
 
-  <!-- Data Analytics Projects Section -->
-  <div class="mb-5">
-    <div class="flex justify-between items-end border-b pb-2">
-      <div class="text-3xl font-bold">Data Analytics Projects</div>
-      <a href="/projects" class="text-sm text-primary hover:underline font-semibold">View All Projects & Demos →</a>
-    </div>
-  </div>
-
-  <div class="grid gap-4 mb-10 text-sm">
-    <!-- 1. Walmart Retail Sales -->
-    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
-      <div class="flex justify-between items-start flex-wrap gap-2">
-        <div class="font-bold text-base">
-          <a href="/blog/walmart-sales" class="hover:underline text-primary">
-            Walmart Retail Sales & Inventory Strategy Analysis ↗
-          </a>
-        </div>
-        <span class="text-xs text-base-content/70">April 2026</span>
-      </div>
-      <ul class="list-disc ml-4 text-xs text-base-content/80 mt-2 grid gap-1">
-        <li>Developed automated reporting models using Python and SQL to evaluate business KPIs across retail locations, translating raw data into insights that uncovered a 69% holiday sales lift and identified top 20% revenue-driving stores.</li>
-        <li>Analyzed store-level demand volatility to track consumer purchasing patterns, recommending flexible inventory and supply chain strategies for volatile locations.</li>
-        <li>Designed Tableau dashboard tracking 9+ core business KPIs (YoY growth, demand variability, 30-day rolling average, store rankings) to directly support executive inventory planning and staffing decisions.</li>
+    <TimeLineElement
+      title="Summer Program Student - Quantitative Finance & Trading"
+      subtitle="June 2023 to July 2023 at Jane Street - New York, NY"
+    >
+      <ul class="list-disc ml-4 text-sm grid gap-1">
+        <li>Selected for competitive quantitative finance program; collaborated in a team to build and backtest a Python trading strategy in a simulated market, finishing in the top 25%.</li>
       </ul>
-      <div class="flex flex-wrap gap-1 mt-3">
-        <span class="badge badge-outline badge-xs">Python</span>
-        <span class="badge badge-outline badge-xs">SQL</span>
-        <span class="badge badge-outline badge-xs">Tableau</span>
-        <span class="badge badge-outline badge-xs">Pandas</span>
-      </div>
-    </div>
-
-    <!-- 2. Environmental Health Risk Mapping Platform -->
-    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
-      <div class="flex justify-between items-start flex-wrap gap-2">
-        <div class="font-bold text-base">
-          <a href="/blog/environmental-health-risk-map" class="hover:underline text-primary">
-            Environmental Health Risk Mapping Platform ↗
-          </a>
-          <span class="badge badge-sm badge-secondary ml-2">Datathon Winner</span>
-        </div>
-        <span class="text-xs text-base-content/70">April 2026</span>
-      </div>
-      <ul class="list-disc ml-4 text-xs text-base-content/80 mt-2 grid gap-1">
-        <li>Won "Best Visualization" out of 39 teams with an interactive dashboard that predicted asthma and cardiovascular risks.</li>
-        <li>Aggregated and cleaned public health data from 8,000+ census tracts (700+ ZIP codes) using Python, engineering a Health Vulnerability Index (HVI) that combined pollution and socioeconomic factors.</li>
-        <li>Applied XGBoost machine learning models to identify key predictors of health risks.</li>
-      </ul>
-      <div class="flex flex-wrap gap-1 mt-3">
-        <span class="badge badge-outline badge-xs">Python</span>
-        <span class="badge badge-outline badge-xs">XGBoost</span>
-        <span class="badge badge-outline badge-xs">FastAPI</span>
-        <span class="badge badge-outline badge-xs">Spatial Analysis</span>
-      </div>
-    </div>
-
-    <!-- 3. A/B Testing Analysis -->
-    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
-      <div class="flex justify-between items-start flex-wrap gap-2">
-        <div class="font-bold text-base">
-          <a href="/blog/ab-test-marketing-campaign" class="hover:underline text-primary">
-            A/B Testing Analysis of Digital Marketing Campaigns ↗
-          </a>
-        </div>
-        <span class="text-xs text-base-content/70">May 2026</span>
-      </div>
-      <ul class="list-disc ml-4 text-xs text-base-content/80 mt-2 grid gap-1">
-        <li>Executed statistical hypothesis testing (two-proportion z-tests, power analysis) on 588K+ users, confirming a statistically significant 0.7% conversion lift (p &lt; 0.05) to guide ad spend allocation.</li>
-        <li>Mapped user interaction metrics and conversion funnels in Seaborn/Matplotlib to deliver visual KPIs to marketing leadership.</li>
-      </ul>
-      <div class="flex flex-wrap gap-1 mt-3">
-        <span class="badge badge-outline badge-xs">Python</span>
-        <span class="badge badge-outline badge-xs">Pandas</span>
-        <span class="badge badge-outline badge-xs">statsmodels</span>
-        <span class="badge badge-outline badge-xs">A/B Testing</span>
-      </div>
-    </div>
-
-    <!-- 4. End-to-end Macro Data Pipeline -->
-    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
-      <div class="flex justify-between items-start flex-wrap gap-2">
-        <div class="font-bold text-base">
-          <a href="/blog/macro-data-pipeline" class="hover:underline text-primary">
-            End-to-end Macro Data Pipeline ↗
-          </a>
-        </div>
-        <span class="text-xs text-base-content/70">April 2026 – Present</span>
-      </div>
-      <ul class="list-disc ml-4 text-xs text-base-content/80 mt-2 grid gap-1">
-        <li>Designed and built an end-to-end ETL pipeline to source time-series data from FRED and Open-Meteo APIs into PostgreSQL, Snowflake, and BigQuery to support large-scale business intelligence initiatives.</li>
-        <li>Executed complex SQL queries to uncover historical trends, calculating rolling averages and year-over-year variances to help stakeholders visualize long-term market impacts.</li>
-        <li>Automated ETL data-cleaning and deduplication workflows, reducing integration errors and improving the reliability of datasets used for operational reporting.</li>
-      </ul>
-      <div class="flex flex-wrap gap-1 mt-3">
-        <span class="badge badge-outline badge-xs">Python</span>
-        <span class="badge badge-outline badge-xs">PostgreSQL</span>
-        <span class="badge badge-outline badge-xs">BigQuery</span>
-        <span class="badge badge-outline badge-xs">Snowflake</span>
-        <span class="badge badge-outline badge-xs">AWS S3</span>
-        <span class="badge badge-outline badge-xs">Linux CLI</span>
-      </div>
-    </div>
+    </TimeLineElement>
   </div>
 
   <!-- Employment -->
@@ -180,14 +78,295 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   <div class="time-line-container mb-10">
     <TimeLineElement
       title="Rock Wall Supervisor and Belayer"
-      subtitle="April 2024 to June 2026 at UCI Recreation Center — Irvine, CA"
-    />
+      subtitle="April 2024 to June 2026 at UCI Recreation Center - Irvine, CA"
+    >
+      <ul class="list-disc ml-4 text-sm grid gap-1">
+        <li>Supervised climbing wall operations and trained climbers; analyzed facility check-in logs to adjust shift scheduling and reduce wait times.</li>
+      </ul>
+    </TimeLineElement>
 
     <TimeLineElement
       title="Student Body Intern"
-      subtitle="September 2023 to June 2024 at Associated Students at UCI — Irvine, CA"
-    />
+      subtitle="September 2023 to June 2024 at Associated Students at UCI - Irvine, CA"
+    >
+      <ul class="list-disc ml-4 text-sm grid gap-1">
+        <li>Organized 4 speaker events (80-100 attendees each) and communicated with 80+ alumni and industry professionals for career panels.</li>
+      </ul>
+    </TimeLineElement>
   </div>
+
+  <!-- Data Analytics & Science Projects Section -->
+  <div class="mb-5">
+    <div class="flex justify-between items-end border-b pb-2">
+      <div class="text-3xl font-bold">Data Analytics & Science Projects</div>
+      <a href="/projects" class="text-sm text-primary hover:underline">View All Projects & Demos →</a>
+    </div>
+  </div>
+
+  <div class="grid gap-4 mb-10 text-sm">
+    <!-- Walmart -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://github.com/AaronVillegas5/walmart_data_analysis" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            Walmart Retail Sales & Inventory Strategy Analysis ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">April 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Retail demand analysis across 45 stores and 2 years of weekly sales data. Modeled holiday seasonality (including a 69% Christmas surge) and store-level demand variance using Coefficient of Variation (CV) to spot where safety stock ran thin. Built a Tableau dashboard comparing year-over-year revenue, store tiers, and 30-day rolling sales.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">SQL</span>
+        <span class="badge badge-outline badge-xs">Tableau</span>
+        <span class="badge badge-outline badge-xs">Pandas</span>
+        <span class="badge badge-outline badge-xs">Demand Planning</span>
+      </div>
+    </div>
+
+    <!-- Multi-Echelon Replenishment -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://github.com/AaronVillegas5/supply-chain-replenishment-simulator" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            Multi-Echelon Replenishment & Stockout Risk Simulator ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">August 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Interactive supply chain simulator that models safety stock, reorder points, and lead-time variability across 50,000+ orders. Uses DuckDB for sub-second local SQL queries without database overhead, SciPy Monte Carlo simulations to calculate stockout risks under demand spikes, and Streamlit/Plotly for scenario testing.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">DuckDB</span>
+        <span class="badge badge-outline badge-xs">SciPy</span>
+        <span class="badge badge-outline badge-xs">Streamlit</span>
+        <span class="badge badge-outline badge-xs">Plotly</span>
+        <span class="badge badge-outline badge-xs">Monte Carlo</span>
+      </div>
+    </div>
+
+    <!-- Macro Data Pipeline -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="/blog/macro-data-pipeline" class="hover:underline text-primary">
+            Macroeconomic & Climate Analytics Platform (Macro Data Pipeline) ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">April 2026 - Present</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Data platform that ingests 9M+ time-series records from FRED, Open-Meteo, and US Census Retail APIs into PostgreSQL and BigQuery. Orchestrated daily with Apache Airflow in Docker and modeled in BigQuery with dbt. Features a SARIMAX forecasting engine for retail trends and a FastAPI backend with a Gemini agent that answers plain-English questions using four BigQuery query tools.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Apache Airflow</span>
+        <span class="badge badge-outline badge-xs">dbt</span>
+        <span class="badge badge-outline badge-xs">BigQuery</span>
+        <span class="badge badge-outline badge-xs">Snowflake</span>
+        <span class="badge badge-outline badge-xs">PostgreSQL</span>
+        <span class="badge badge-outline badge-xs">Docker</span>
+        <span class="badge badge-outline badge-xs">FastAPI</span>
+        <span class="badge badge-outline badge-xs">SARIMAX</span>
+        <span class="badge badge-outline badge-xs">Gemini API</span>
+      </div>
+    </div>
+
+    <!-- The Frontier Brief -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://aaronvillegas5.github.io/frontier-brief/" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            The Frontier Brief: Daily AI Intelligence Pipeline ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">September 2026 - Present</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        A daily AI briefing I built and run. Every morning it pulls from AI lab blogs, Reddit, Hacker News, Mastodon and GitHub Trending, ranks what matters, and drafts the newsletter with a writer model. A second model reviews the draft, and plain code checks catch repeated wording and mismatched names before it goes out. Each edition is emailed through Buttondown and saved to a public archive. It runs on GitHub Actions for about 30 cents a day, retries on failure, alerts me if a day is missed, and has 440+ tests.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">OpenAI API</span>
+        <span class="badge badge-outline badge-xs">GitHub Actions</span>
+        <span class="badge badge-outline badge-xs">Buttondown</span>
+        <span class="badge badge-outline badge-xs">Supabase</span>
+        <span class="badge badge-outline badge-xs">pytest</span>
+      </div>
+    </div>
+
+    <!-- Autonomous Edge AI Ops -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            Home Server on a Raspberry Pi 5 ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">August 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        A headless Raspberry Pi 5 I set up and run at home. It runs background Python jobs and AI workflows, checks an inbox over IMAP for job-application emails, takes deduplicated backups with Rustic, and keeps files in sync across my machines with Syncthing.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">ARM64 Linux</span>
+        <span class="badge badge-outline badge-xs">Docker</span>
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">IMAP/TLS</span>
+        <span class="badge badge-outline badge-xs">Rustic</span>
+        <span class="badge badge-outline badge-xs">Syncthing</span>
+      </div>
+    </div>
+
+    <!-- Environmental Health Risk Map -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="/blog/environmental-health-risk-map" class="hover:underline text-primary">
+            Environmental Health Risk Mapping Platform ↗
+          </a>
+          <span class="badge badge-sm badge-secondary ml-2">Datathon Winner</span>
+        </div>
+        <span class="text-xs text-base-content/70">April 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Won Best Visualization out of 39 teams. Blended CalEnviroScreen, EPA, and census data covering 8,000+ California census tracts into a composite Health Vulnerability Index. Trained XGBoost models to predict respiratory and cardiac risk factors, deployed behind a FastAPI service for real-time risk scores and nearest-neighbor lookups.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">XGBoost</span>
+        <span class="badge badge-outline badge-xs">FastAPI</span>
+        <span class="badge badge-outline badge-xs">Spatial Analysis</span>
+        <span class="badge badge-outline badge-xs">Machine Learning</span>
+      </div>
+    </div>
+
+    <!-- ResuMatch -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            ResuMatch: AI Resume & Job Description Analyzer ↗
+          </a>
+          <span class="badge badge-sm badge-secondary ml-2">ZotHacks Hackathon</span>
+        </div>
+        <span class="text-xs text-base-content/70">December 2025</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Resume analysis tool built during ZotHacks. Uses Python, FastAPI, and OpenAI to parse resumes against job postings, running TF-IDF keyword extraction and text matching to highlight missing qualifications.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">FastAPI</span>
+        <span class="badge badge-outline badge-xs">OpenAI API</span>
+        <span class="badge badge-outline badge-xs">React</span>
+        <span class="badge badge-outline badge-xs">TF-IDF</span>
+        <span class="badge badge-outline badge-xs">NLP</span>
+      </div>
+    </div>
+
+    <!-- A/B Testing Analysis -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="/blog/ab-test-marketing-campaign" class="hover:underline text-primary">
+            A/B Testing Analysis of Digital Marketing Campaigns ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">May 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Statistical hypothesis testing on 588,000+ customer records. Used unequal-group power analysis and two-proportion z-tests to measure conversion differences, validating a statistically significant 0.76 percentage-point conversion lift (1.79% to 2.55%, p &lt; 0.001) to guide advertising spend.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">A/B Testing</span>
+        <span class="badge badge-outline badge-xs">statsmodels</span>
+        <span class="badge badge-outline badge-xs">Hypothesis Testing</span>
+        <span class="badge badge-outline badge-xs">Seaborn</span>
+      </div>
+    </div>
+
+    <!-- Global Superstore Normalization -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            Global Superstore Data Normalization & Analytics Dashboard ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">August 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Normalized a flat dataset of 51,290 global sales records into a 3-table relational schema (Orders Fact, Customers Dim, Products Dim) with primary and foreign keys to eliminate duplication. Built Excel Pivot Table dashboards tracking regional profitability and shipping fulfillment lead times.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Excel</span>
+        <span class="badge badge-outline badge-xs">Data Normalization</span>
+        <span class="badge badge-outline badge-xs">Pivot Tables</span>
+        <span class="badge badge-outline badge-xs">XLOOKUP</span>
+        <span class="badge badge-outline badge-xs">Relational Modeling</span>
+      </div>
+    </div>
+
+    <!-- Machine Learning Bank Marketing -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="/blog/bank-marketing-ml" class="hover:underline text-primary">
+            Predicting Marketing Success with Machine Learning ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">March 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        Customer targeting model trained on 40,000+ bank marketing records. Addressed class imbalance using SMOTE and threshold tuning (85% accuracy, 0.62 recall), evaluating random forest feature importance to identify which macroeconomic indicators correlated most with deposit subscriptions.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">scikit-learn</span>
+        <span class="badge badge-outline badge-xs">SQL</span>
+        <span class="badge badge-outline badge-xs">SMOTE</span>
+        <span class="badge badge-outline badge-xs">Random Forest</span>
+      </div>
+    </div>
+
+    <!-- Numerical Linear Algebra -->
+    <div class="p-4 bg-base-200 rounded-lg border border-base-300">
+      <div class="flex justify-between items-start flex-wrap gap-2">
+        <div class="font-bold text-base">
+          <a href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+            Numerical Linear Algebra & Algorithmic Stability ↗
+          </a>
+        </div>
+        <span class="text-xs text-base-content/70">Spring 2026</span>
+      </div>
+      <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
+        UCI Directed Reading Program project in computational math. Implemented Classical vs. Modified Gram-Schmidt and QR decomposition in Python to benchmark loss of orthogonality on ill-conditioned Hilbert matrices. Built an SVD algorithm from scratch using iterative QR decomposition on A^TA for image rank approximations.
+      </p>
+      <div class="flex flex-wrap gap-1 mt-2.5">
+        <span class="badge badge-outline badge-xs">Python</span>
+        <span class="badge badge-outline badge-xs">NumPy</span>
+        <span class="badge badge-outline badge-xs">OpenCV</span>
+        <span class="badge badge-outline badge-xs">SVD</span>
+        <span class="badge badge-outline badge-xs">LaTeX</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Honors & Awards -->
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Honors & Awards</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2 text-sm">
+    <li><b>Datathon Winner (Best Visualization):</b> Environmental Health Risk Mapping Platform (Out of 39 teams) - <i>April 2026</i></li>
+    <li><b>Howard Tucker Award in Mathematics:</b> Awarded for outstanding achievement in upper-division math coursework - <i>June 2024</i></li>
+    <li><b>Cum Laude & 9x Dean's Honor List:</b> Maintained 3.911 GPA across all 9 quarters at UC Irvine - <i>2022-2026</i></li>
+  </ul>
 
   <!-- Skills -->
   <div class="mb-5">
@@ -195,24 +374,35 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10 text-sm">
-    <div class="p-4 bg-base-200/60 rounded-lg border border-base-300">
-      <h4 class="font-bold border-b pb-1 mb-2 text-primary">Languages & Libraries</h4>
+    <div>
+      <h4 class="font-bold border-b pb-1 mb-2">Languages</h4>
       <ul class="list-disc ml-5 grid gap-1">
-        <li><b>Languages:</b> Python, SQL, R, C++</li>
-        <li><b>Libraries:</b> Pandas, NumPy</li>
+        <li>Python, SQL, R, C++</li>
       </ul>
     </div>
-    <div class="p-4 bg-base-200/60 rounded-lg border border-base-300">
-      <h4 class="font-bold border-b pb-1 mb-2 text-primary">Tools & Infrastructure</h4>
+    <div>
+      <h4 class="font-bold border-b pb-1 mb-2">Libraries & Frameworks</h4>
       <ul class="list-disc ml-5 grid gap-1">
-        <li>Tableau, PowerBI, BigQuery, Snowflake</li>
-        <li>AWS S3, Git, PostgreSQL, Excel, REST API, Linux CLI</li>
+        <li>Pandas, NumPy, scikit-learn</li>
+        <li>PyTorch, XGBoost, statsmodels, Seaborn, Matplotlib</li>
+        <li>FastAPI, REST APIs</li>
       </ul>
     </div>
-    <div class="p-4 bg-base-200/60 rounded-lg border border-base-300 md:col-span-2">
-      <h4 class="font-bold border-b pb-1 mb-2 text-primary">Methods & Analytical Competencies</h4>
+    <div>
+      <h4 class="font-bold border-b pb-1 mb-2">Tools & Data Platforms</h4>
       <ul class="list-disc ml-5 grid gap-1">
-        <li>Data Visualization, KPI Tracking, ETL Pipelines, Data Cleaning, Statistical Analysis, A/B Testing</li>
+        <li>Tableau, PowerBI, Apache Airflow, dbt, dbt-bigquery</li>
+        <li>BigQuery, Snowflake, PostgreSQL, Docker, AWS S3</li>
+        <li>Google Gemini API, Git, Excel, Linux CLI</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold border-b pb-1 mb-2">Methods & Competencies</h4>
+      <ul class="list-disc ml-5 grid gap-1">
+        <li>Data Warehousing, Data Modeling (Staging/Intermediate/Marts)</li>
+        <li>Time-Series Forecasting (SARIMAX), A/B Testing & Hypothesis Testing</li>
+        <li>ETL/ELT Pipelines, Data Cleaning & Verification</li>
+        <li>Predictive Modeling, Machine Learning</li>
       </ul>
     </div>
   </div>

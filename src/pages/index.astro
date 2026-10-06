@@ -17,22 +17,29 @@ const last_posts = posts.slice(0, 3);
     <div class="text-xl py-1 font-medium">Hello! </div>
     <div class="text-5xl font-bold">I'm Aaron Kyle Villegas</div>
     <div class="text-2xl md:text-3xl py-3 font-bold text-primary leading-snug">
-      Data Analyst & Quantitative Modeler | Applied Mathematics, ETL Pipelines & Business Intelligence
+      Data Analyst / Business Intelligence Analyst | Python, SQL, dbt
     </div>
     <div class="py-2">
       <p class="text-lg leading-relaxed">
-        Applied Mathematics graduate based in Bentonville, Arkansas specializing in data science, predictive modeling, machine learning, and statistical analysis. Experienced in building automated ETL pipelines, financial risk models, and interactive analytics dashboards.
+        I'm an Applied Math grad from UC Irvine, living in Northwest Arkansas. I like turning messy data into something people can act on: pipelines that run on their own, forecasts, and dashboards. Most of my work is in Python and SQL, with a lot of retail and supply chain examples.
+      </p>
+      <p class="mt-4 flex items-start gap-2 text-base leading-relaxed">
+        <img src="/humn-mark.svg" alt="HUMN Solutions logo" class="h-6 w-6 shrink-0 mt-0.5" />
+        <span>
+          Right now I'm a Software Development Intern at <a class="link link-primary" href="https://www.humn.solutions/" target="_blank" rel="noopener noreferrer"><b>HUMN Solutions</b></a>, where I build and run
+          <a class="link link-primary" href="https://aaronvillegas5.github.io/frontier-brief/" target="_blank" rel="noopener noreferrer">The Frontier Brief</a>, a daily AI newsletter.
+        </span>
       </p>
     </div>
     <div class="mt-8 flex flex-wrap gap-4">
       <a class="btn btn-primary" href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
-        📄 View Resume
+        View Resume
       </a>
       <a class="btn btn-outline" href="https://linkedin.com/in/aaronvillegas1" target="_blank" rel="noopener noreferrer">
-        💼 LinkedIn
+        LinkedIn
       </a>
       <a class="btn btn-outline" href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer">
-        🐙 GitHub
+        GitHub
       </a>
     </div>
   </div>
@@ -43,62 +50,86 @@ const last_posts = posts.slice(0, 3);
 
   <!-- 1. Walmart Sales & Demand Analytics -->
   <HorizontalCard
-    title="Walmart Sales & Demand Analytics"
+    title="Walmart Retail Sales & Inventory Strategy Analysis"
     img="/walmart-analytics.webp"
-    desc="Automated reporting and analytics pipelines evaluating business KPIs across retail locations. Uncovered a 69% holiday sales lift and evaluated store-level demand volatility using Coefficient of Variation (CV) for inventory planning."
+    desc="Retail demand analysis across 45 stores and 2 years of weekly sales. Modeled holiday seasonality (including a 69% Christmas surge) and store-level demand variance (Coefficient of Variation) to spot where safety stock ran thin. Built a Tableau dashboard comparing year-over-year revenue, store tiers, and 30-day rolling sales."
     url="/blog/walmart-sales"
-    badge="Data Analytics"
+    badge="Retail Analytics"
     tags={["Python", "SQL", "Tableau", "Pandas", "Demand Planning"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/walmart-sales", target: "_self", primary: true },
-      { text: "📊 Tableau Dashboard", url: "https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard", target: "_blank" },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/walmart_data_analysis", target: "_blank" }
+      { text: "Read Case Study", url: "/blog/walmart-sales", target: "_self", primary: true },
+      { text: "Tableau Dashboard", url: "https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard", target: "_blank" },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/walmart_data_analysis", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 2. Environmental Health Risk Mapping Platform -->
+  <!-- 2. Multi-Echelon Replenishment & Stockout Risk Simulator -->
+  <HorizontalCard
+    title="Multi-Echelon Replenishment & Stockout Risk Simulator"
+    img="/replenishment-simulator.webp"
+    desc="Interactive supply chain simulator that models safety stock, reorder points, and lead-time variability across 50,000+ orders. Uses DuckDB for sub-second local SQL queries without database overhead, SciPy Monte Carlo simulations to calculate stockout risks under demand spikes, and Streamlit/Plotly for scenario testing."
+    url="https://github.com/AaronVillegas5/supply-chain-replenishment-simulator"
+    badge="Inventory Analytics"
+    tags={["Python", "DuckDB", "SciPy", "Streamlit", "Plotly", "Monte Carlo"]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 3. Macroeconomic & Climate Analytics Platform (Macro Data Pipeline) -->
+  <HorizontalCard
+    title="Macroeconomic & Climate Analytics Platform (Macro Data Pipeline)"
+    img="/macro-pipeline.webp"
+    desc="Data platform that ingests 9M+ time-series records from FRED, Open-Meteo, and US Census Retail APIs into PostgreSQL and BigQuery. Orchestrated daily with Apache Airflow in Docker and modeled in BigQuery with dbt. Features a SARIMAX forecasting engine for retail trends and a FastAPI backend with a Gemini agent that answers plain-English questions using four BigQuery query tools."
+    url="/blog/macro-data-pipeline"
+    badge="Data Engineering"
+    tags={["Python", "Apache Airflow", "dbt", "BigQuery", "Snowflake", "PostgreSQL", "Docker", "FastAPI", "SARIMAX"]}
+    custom_links={[
+      { text: "Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 4. The Frontier Brief -->
+  <HorizontalCard
+    title="The Frontier Brief: Daily AI Intelligence Pipeline"
+    desc="A daily AI briefing I built and run. Every morning it pulls from AI lab blogs, Reddit, Hacker News, Mastodon and GitHub Trending, ranks what matters, and drafts the newsletter with a writer model. A second model reviews the draft, and plain code checks catch repeated wording and mismatched names before it goes out. Each edition is emailed through Buttondown and saved to a public archive. It runs on GitHub Actions for about 30 cents a day, retries on failure, alerts me if a day is missed, and has 440+ tests."
+    url="https://aaronvillegas5.github.io/frontier-brief/"
+    badge="Autonomous Pipeline"
+    tags={["Python", "OpenAI API", "GitHub Actions", "Buttondown", "Supabase", "pytest"]}
+    custom_links={[
+      { text: "Read the Latest Edition", url: "https://aaronvillegas5.github.io/frontier-brief/", target: "_blank", primary: true }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 5. Environmental Health Risk Mapping Platform -->
   <HorizontalCard
     title="Environmental Health Risk Mapping Platform"
     img="/env-risk-map.webp"
-    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
+    desc="Won Best Visualization out of 39 teams. Blended CalEnviroScreen, EPA, and census data covering 8,000+ California census tracts into a composite Health Vulnerability Index. Trained XGBoost models to predict respiratory and cardiac risk factors, deployed behind a FastAPI service for real-time risk scores."
     url="/blog/environmental-health-risk-map"
     badge="Datathon Winner"
     tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
-      { text: "🌐 Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
+      { text: "Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
+      { text: "Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 3. Macroeconomic Time-Series Data Pipeline -->
-  <HorizontalCard
-    title="Macroeconomic Time-Series Data Pipeline"
-    img="/macro-pipeline.webp"
-    desc="Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs (FRED, Open-Meteo) into PostgreSQL, BigQuery, and Snowflake with raw API response persistence to AWS S3 for auditability."
-    url="/blog/macro-data-pipeline"
-    badge="Data Engineering"
-    tags={["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]}
-    custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
-    ]}
-  />
-  <div class="divider my-0"></div>
-
-  <!-- 4. A/B Testing Analysis -->
+  <!-- 6. A/B Testing Analysis -->
   <HorizontalCard
     title="A/B Testing Analysis of Digital Marketing Campaigns"
     img="/ab-testing.webp"
-    desc="Statistical hypothesis testing on a 588K-user marketing dataset. Executed sample size validation via unequal-group power analysis and two-proportion z-tests, confirming a statistically significant 0.7% conversion lift (p < 0.05)."
+    desc="Statistical hypothesis testing on 588,000+ customer records. Used unequal-group power analysis and two-proportion z-tests to measure conversion differences, validating a statistically significant 0.76 percentage-point conversion lift (1.79% to 2.55%, p < 0.001) to guide advertising spend."
     url="/blog/ab-test-marketing-campaign"
     badge="A/B Testing"
-    tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas"]}
+    tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas", "Seaborn"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/ab-test-marketing-campaign", target: "_self", primary: true },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/ABTest-MarketingCampaign", target: "_blank" }
+      { text: "Read Case Study", url: "/blog/ab-test-marketing-campaign", target: "_self", primary: true },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/ABTest-MarketingCampaign", target: "_blank" }
     ]}
   />
 
@@ -106,7 +137,7 @@ const last_posts = posts.slice(0, 3);
     last_posts.length > 0 && (
       <>
         <div>
-          <div class="text-3xl w-full font-bold mb-5 mt-10">Deep Dives & Case Studies</div>
+          <div class="text-3xl w-full font-bold mb-5 mt-10">Case Studies</div>
         </div>
 
         {last_posts.map((post) => (
