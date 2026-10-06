@@ -55,13 +55,12 @@ import HorizontalCard from "../components/HorizontalCard.astro";
   <!-- 4. The Frontier Brief -->
   <HorizontalCard
     title="The Frontier Brief: Daily AI Intelligence Pipeline"
-    desc="Automated news pipeline running every morning at 09:00 UTC on GitHub Actions for $0. It monitors 13 sources (AI lab blogs, Reddit, Mastodon, Hacker News, GitHub Trending), parses them into typed JSON with Gemini 3.1 Flash-Lite, runs an automated critic to flag single-source claims, and delivers formatted HTML emails via Resend while maintaining a public web archive."
-    url="https://github.com/AaronVillegas5/frontier-brief"
+    desc="A daily AI briefing I built and run. Every morning it pulls from AI lab blogs, Reddit, Hacker News, Mastodon and GitHub Trending, ranks what matters, and drafts the newsletter with a writer model. A second model reviews the draft, and plain code checks catch repeated wording and mismatched names before it goes out. Each edition is emailed through Buttondown and saved to a public archive. It runs on GitHub Actions for about 30 cents a day, retries on failure, alerts me if a day is missed, and has 440+ tests."
+    url="https://aaronvillegas5.github.io/frontier-brief/"
     badge="Autonomous Pipeline"
-    tags={["Python", "Gemini API", "GitHub Actions", "Resend API", "CI/CD", "JSON Schema"]}
+    tags={["Python", "OpenAI API", "GitHub Actions", "Buttondown", "Supabase", "pytest"]}
     custom_links={[
-      { text: "Web Archive", url: "https://aaronvillegas5.github.io/frontier-brief/", target: "_blank", primary: true },
-      { text: "GitHub", url: "https://github.com/AaronVillegas5/frontier-brief", target: "_blank" }
+      { text: "Read the Latest Edition", url: "https://aaronvillegas5.github.io/frontier-brief/", target: "_blank", primary: true }
     ]}
   />
   <div class="divider my-0"></div>

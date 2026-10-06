@@ -13,7 +13,7 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="mb-10 text-justify text-base leading-relaxed">
-    Applied Math graduate from UC Irvine based in Northwest Arkansas. I build automated data pipelines, forecasting models, and analytics dashboards using Python, SQL, dbt, and BigQuery, with an emphasis on retail analytics, inventory simulation, and production data workflows.
+    I'm an Applied Math grad from UC Irvine, living in Northwest Arkansas. I build data pipelines, forecasting models, and dashboards, mostly in Python and SQL. Right now I'm a software development intern at HUMN Solutions, working on a daily AI newsletter pipeline.
   </div>
 
   <!-- Education -->
@@ -37,6 +37,18 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
   </div>
 
   <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Software Development Intern"
+      subtitle="Fall 2026 to Present at HUMN Solutions (Align AI), through the Apprenticely program"
+    >
+      <ul class="list-disc ml-4 text-sm grid gap-1.5">
+        <li>Built and run The Frontier Brief, a daily AI newsletter: it collects sources each morning, drafts and reviews the edition, emails it to subscribers, and posts it to a public archive.</li>
+        <li>After a code review, added delivery safeguards so a failed or repeated run can't skip a day or send twice: a delivery marker, automatic retries, and an email alert when an edition is missing.</li>
+        <li>Wrote 440+ automated tests, including checks that catch repeated wording and inconsistent product names before an edition goes out.</li>
+        <li>Set up the daily scheduler on Google Cloud (Cloud Scheduler and Cloud Functions) to replace the Cloudflare one.</li>
+      </ul>
+    </TimeLineElement>
+
     <TimeLineElement
       title="AI Benchmark Engineering Fellow"
       subtitle="July 2026 to August 2026 at Handshake AI (Remote)"
@@ -167,22 +179,22 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <div class="p-4 bg-base-200 rounded-lg border border-base-300">
       <div class="flex justify-between items-start flex-wrap gap-2">
         <div class="font-bold text-base">
-          <a href="https://github.com/AaronVillegas5/frontier-brief" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
+          <a href="https://aaronvillegas5.github.io/frontier-brief/" target="_blank" rel="noopener noreferrer" class="hover:underline text-primary">
             The Frontier Brief: Daily AI Intelligence Pipeline ↗
           </a>
         </div>
-        <span class="text-xs text-base-content/70">September 2026</span>
+        <span class="text-xs text-base-content/70">September 2026 - Present</span>
       </div>
       <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
-        Automated news pipeline running every morning at 09:00 UTC on GitHub Actions for $0. It monitors 13 sources (AI lab blogs, Reddit, Mastodon, Hacker News, GitHub Trending), parses them into typed JSON with Gemini 3.1 Flash-Lite, runs an automated critic to flag single-source claims, and delivers formatted HTML emails via Resend while maintaining a public web archive.
+        A daily AI briefing I built and run. Every morning it pulls from AI lab blogs, Reddit, Hacker News, Mastodon and GitHub Trending, ranks what matters, and drafts the newsletter with a writer model. A second model reviews the draft, and plain code checks catch repeated wording and mismatched names before it goes out. Each edition is emailed through Buttondown and saved to a public archive. It runs on GitHub Actions for about 30 cents a day, retries on failure, alerts me if a day is missed, and has 440+ tests.
       </p>
       <div class="flex flex-wrap gap-1 mt-2.5">
         <span class="badge badge-outline badge-xs">Python</span>
-        <span class="badge badge-outline badge-xs">Gemini API</span>
+        <span class="badge badge-outline badge-xs">OpenAI API</span>
         <span class="badge badge-outline badge-xs">GitHub Actions</span>
-        <span class="badge badge-outline badge-xs">Resend API</span>
-        <span class="badge badge-outline badge-xs">CI/CD</span>
-        <span class="badge badge-outline badge-xs">JSON Schema</span>
+        <span class="badge badge-outline badge-xs">Buttondown</span>
+        <span class="badge badge-outline badge-xs">Supabase</span>
+        <span class="badge badge-outline badge-xs">pytest</span>
       </div>
     </div>
 
