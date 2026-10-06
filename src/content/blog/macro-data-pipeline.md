@@ -1,189 +1,194 @@
 ---
-title: "Macroeconomic Time-Series Data Pipeline"
-description: "Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs into PostgreSQL, BigQuery, and Snowflake with AWS S3 raw logging."
+title: "Macroeconomic & Climate Analytics Platform"
+description: "Data platform ingesting FRED, Open-Meteo, and Census Retail data into PostgreSQL and BigQuery with Airflow orchestration, dbt modeling, SARIMAX forecasting, and a Gemini data agent."
 pubDate: "May 16 2026"
 heroImage: "/macro-pipeline.webp"
 badge: "Data Engineering"
-tags: ["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]
+tags: ["Python", "Apache Airflow", "dbt", "BigQuery", "Snowflake", "PostgreSQL", "Docker", "FastAPI", "SARIMAX"]
 ---
 
-<!-- 📊 KPI Summary Grid -->
 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
   <div class="p-4 bg-base-200/80 rounded-xl border border-base-300 shadow-sm flex flex-col justify-between">
-    <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">Cloud & DWH Architecture</span>
-    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">3 Storage Sinks</div>
-    <p class="text-xs text-base-content/80 mt-1">PostgreSQL, BigQuery, Snowflake</p>
+    <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">Orchestration & DWH</span>
+    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">Airflow + BigQuery</div>
+    <p class="text-xs text-base-content/80 mt-1">Daily DAGs in Docker with dbt transformations</p>
   </div>
   <div class="p-4 bg-base-200/80 rounded-xl border border-base-300 shadow-sm flex flex-col justify-between">
-    <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">Data Deduplication</span>
-    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">100% Idempotent</div>
-    <p class="text-xs text-base-content/80 mt-1">ON CONFLICT & MERGE INTO Upserts</p>
+    <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">Time-Series Modeling</span>
+    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">SARIMAX Engine</div>
+    <p class="text-xs text-base-content/80 mt-1">AIC-selected orders with domain isolation</p>
   </div>
   <div class="p-4 bg-base-200/80 rounded-xl border border-base-300 shadow-sm flex flex-col justify-between">
-    <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">API Persistence</span>
-    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">Dual-Sink</div>
-    <p class="text-xs text-base-content/80 mt-1">AWS S3 Raw Logging + Streaming Ingestion</p>
+    <span class="text-xs font-semibold text-base-content/70 uppercase tracking-wider">Natural Language Questions</span>
+    <div class="text-2xl md:text-3xl font-extrabold text-primary my-1">Gemini AI Agent</div>
+    <p class="text-xs text-base-content/80 mt-1">FastAPI service querying BigQuery data marts</p>
   </div>
 </div>
 
-## Executive Summary
+## Overview
 
-Economic analysis and time-series forecasting rely heavily on consistent, reliable, and multi-source data ingestion. The **Macro Data Pipeline** is an automated data engineering system designed to collect, clean, deduplicate, and store historical economic and environmental datasets from multiple REST APIs (Federal Reserve Economic Data - FRED API, Open-Meteo Weather API) into a unified multi-cloud data architecture.
+I built this platform to bring together macroeconomic indicators, localized climate data, and US Census retail sales into a unified analytical data warehouse. Rather than running disconnected ad-hoc scripts, the system runs on a containerized architecture orchestrated by Apache Airflow, cleans and models data with dbt, forecasts trends with SARIMAX, and exposes data marts through a Gemini-powered agent that answers plain-English questions through a small set of query tools.
 
-The pipeline architecture features dual-sink streaming to **PostgreSQL** and **Google BigQuery**, analytical data warehousing in **Snowflake**, and raw API JSON response persistence in **AWS S3** for auditability and reprocessing.
-
----
-
-## 🖥 Architecture & Infrastructure Diagram
-
-The pipeline isolates each data source using modular service handlers and non-blocking try/except sinks, ensuring a failure in one destination (e.g. cloud latency) never blocks ingestion into another.
-
-<div class="my-6 p-4 rounded-xl border border-base-300 bg-base-200/60 shadow-sm overflow-x-auto font-mono text-xs md:text-sm text-base-content">
-<pre class="leading-relaxed">
-┌────────────────────────────────────────────────────────────────────────┐
-│                   API Ingestion Layer (FRED & Open-Meteo)              │
-└───────────────────────────────────┬────────────────────────────────────┘
-                                    │
-                                    ▼
-┌────────────────────────────────────────────────────────────────────────┐
-│               Data Fetchers & Parser Services (Python)                 │
-└──────────────┬────────────────────┬────────────────────┬───────────────┘
-               │                    │                    │
-               ▼                    ▼                    ▼
-     ┌──────────────────┐  ┌──────────────────┐  ┌──────────────────┐
-     │   AWS S3 Raw     │  │ PostgreSQL DWH   │  │  Google BigQuery │
-     │ (JSON Data Lake) │  │  (SQLAlchemy)    │  │  (Streaming Sink)│
-     └──────────────────┘  └──────────────────┘  └──────────────────┘
-                                    │
-                                    ▼
-                           ┌──────────────────┐
-                           │  Snowflake DWH   │
-                           │  (MERGE Upsert)  │
-                           └──────────────────┘
-</pre>
-</div>
-
-* 💻 **GitHub Repository:** [AaronVillegas5/macro-data-pipeline](https://github.com/AaronVillegas5/macro-data-pipeline)
+* GitHub Repository: [AaronVillegas5/macro-data-pipeline](https://github.com/AaronVillegas5/macro-data-pipeline)
 
 ---
 
-## 📊 Key Pipeline Features & Specifications
+## Architecture & Data Flow
 
-| Feature / Metric | Pipeline Implementation |
+```
+[ Data Sources ]
+  - FRED API (CPI, Unemployment, Fed Funds Rate, GDP, Sentiment)
+  - Open-Meteo API (Historical Weather & Climate)
+  - US Census Bureau (Monthly Retail Trade Survey)
+         │
+         ▼
+[ Orchestration & Extraction: Apache Airflow (Docker) ]
+  - Python extraction services with backoff retries
+  - Raw JSON audit logs stored in AWS S3
+         │
+         ▼
+[ Multi-Sink Ingestion ]
+  - PostgreSQL (Operational staging with SQLAlchemy ORM)
+  - Google BigQuery (Analytical warehouse)
+  - Snowflake (Historical archive with MERGE upserts)
+         │
+         ▼
+[ Transformation: dbt (Data Build Tool) ]
+  - Staging: Timestamp standardization & schema casting
+  - Intermediate: Rolling averages & time-series gap analysis
+  - Marts: fct_monthly_retail_macro & climate observations
+  - CI/CD: Automated dbt tests via GitHub Actions
+         │
+         ├─────────────────────────────────────────┐
+         ▼                                         ▼
+[ SARIMAX Forecasting Engine ]             [ Gemini Data Agent ]
+  - statsmodels auto-order selection         - FastAPI backend
+  - National vs local domain isolation       - Four fixed BigQuery query tools
+  - Trend projections                        - SELECT-only queries (read-only)
+```
+
+---
+
+## Pipeline Features
+
+| Area | Implementation |
 | :--- | :--- |
-| **Data Sources** | FRED API (Federal Reserve), Open-Meteo Historical Weather API, U.S. Census |
-| **Relational Database** | PostgreSQL (managed with Alembic schema migrations) |
-| **Cloud Warehouses** | Google BigQuery (weather_data dataset) & Snowflake (analytical DWH) |
-| **Raw Persistence** | AWS S3 Bucket (S3 Object Storage for raw API responses) |
-| **Migration & Backfill** | Keyset pagination script (`migrate_historical_weather.py`) PostgreSQL → BigQuery |
-| **Deduplication** | Idempotent `MERGE INTO` SQL upserts and timestamp uniqueness constraints |
+| **Data Sources** | FRED API, Open-Meteo Weather API, US Census Retail Trade |
+| **Orchestration** | Apache Airflow DAGs running in Docker Compose |
+| **Storage Sinks** | Google BigQuery, PostgreSQL, Snowflake, AWS S3 |
+| **Transformations** | dbt models (staging, intermediate, marts) with schema tests |
+| **CI/CD Automation** | GitHub Actions running pytest, linting, and dbt test on push |
+| **Forecasting** | SARIMAX via statsmodels with AIC order optimization |
+| **Self-Serve Analytics** | FastAPI service with Gemini function-calling to query BigQuery |
 
 ---
 
-## 💡 Economic Insights & Analytical Capabilities
+## Key Technical Decisions
 
-By linking macro indicators with localized weather trends and consumer retail patterns, this pipeline allows analysts to explore:
+### 1. Daily Orchestration with Apache Airflow
+Initially, data ingestion was triggered through standalone Python scripts. As the number of feeds grew to include FRED, Open-Meteo, and Census Retail data, I transitioned the workflow to Apache Airflow running in Docker Compose. Airflow schedules daily DAGs that handle exponential backoff retries, monitor API rate limits, and trigger downstream dbt transformations only after upstream extraction tasks pass schema checks.
 
-* **Macroeconomic Inflation & Yield Spreads:** Historical FRED indicator trends (CPI, Unemployment Rate, 10-Year Treasury Yields).
-* **Climate & Weather Aggregations:** 30-day rolling average temperature trends, regional rainiest years, and historical extreme weather shifts.
-* **Store & Regional Sensitivity:** Correlation between localized weather events and regional retail purchasing patterns.
+### 2. Retail Data Marts in dbt (`fct_monthly_retail_macro`)
+To analyze how consumer spending responds to macroeconomic shifts, I added monthly retail trade data from the US Census Bureau. Using dbt, I pivoted the retail series (total, grocery, e-commerce, auto, and clothing sales) and joined it onto the existing macro and weather fact table, so one mart answers questions across all three sources. The dbt project also runs automated tests, including positive-sales checks, no-future-dates checks, and out-of-bounds checks.
+
+### 3. SARIMAX Forecasting with Domain Isolation
+I built a time-series forecasting engine using `statsmodels.tsa.statespace.sarimax.SARIMAX` to project retail sales and temperature trends. A key design decision was enforcing domain isolation:
+* City-level weather records are modeled independently from national retail aggregates.
+* Mixing localized rainfall with national retail figures risks producing false statistical correlations (such as a storm in Dallas looking like it caused a dip in nationwide grocery revenue).
+* The forecasting engine evaluates seasonal differences (P, D, Q, s) and picks model parameters based on the Akaike Information Criterion (AIC).
+
+### 4. Gemini Data Agent
+To make the BigQuery data accessible without writing manual queries each time, I built a FastAPI service that connects Google Gemini to the data marts through function calling:
+1. The agent is given four fixed query functions: a weather and macro mart query, a data freshness check, a climate extremes lookup, and a city-to-city comparison.
+2. Given a plain-English question, Gemini decides which function to call and with what arguments (dates, city, metric).
+3. Each function runs a parameterized SELECT-only query against the mart. The agent does not write free-form SQL.
+4. The agent summarizes the returned rows with exact numbers and reference periods.
 
 ---
 
-## 🛠 Interactive Code Highlights & Technical Implementation
+## Code Highlights
 
 <div class="my-6 rounded-xl border border-base-300 bg-base-200/40 p-4 shadow-sm overflow-x-auto">
   <div role="tablist" class="tabs tabs-lifted overflow-x-auto flex-nowrap min-w-max">
     <!-- Tab 1 -->
-    <input type="radio" name="code_tabs_macro" role="tab" class="tab font-semibold" aria-label="Python Keyset Migration" checked />
+    <input type="radio" name="code_tabs_macro" role="tab" class="tab font-semibold" aria-label="SARIMAX Forecasting" checked />
     <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-4 overflow-x-auto max-w-full">
-      <p class="text-xs text-base-content/80 mb-3"><b>File:</b> <code>scripts/migrate_historical_weather.py</code> — Keyset streaming handler for BigQuery backfill:</p>
+      <p class="text-xs text-base-content/80 mb-3"><b>File:</b> <code>services/forecasting/sarimax_engine.py</code> - AIC grid search over seasonal and non-seasonal orders (excerpt):</p>
 
 ```python
-from google.cloud import bigquery
-from sqlalchemy.orm import Session
+def _aic_grid_search(
+    train: pd.Series,
+    p_values: tuple[int, ...] = (0, 1, 2),
+    d_values: tuple[int, ...] = (0, 1),
+    q_values: tuple[int, ...] = (0, 1, 2),
+    P_values: tuple[int, ...] = (0, 1),
+    D_values: tuple[int, ...] = (0, 1),
+    Q_values: tuple[int, ...] = (0, 1),
+    s: int = 12,
+) -> tuple[object, tuple, tuple, float]:
+    """Lightweight grid search over (p,d,q)(P,D,Q)_s minimising AIC."""
+    best_result = None
+    best_order = (1, 1, 1)
+    best_seasonal_order = (1, 1, 1, s)
+    best_aic = float("inf")
 
-_BQ_DATASET = "weather_data"
-_BQ_TABLE = "observations_v2"
-
-def _observation_to_bq_row(obs: WeatherObservation) -> dict:
-    """Serializes a WeatherObservation ORM instance into a BigQuery-safe dict."""
-    return {
-        "location_id": obs.location_id,
-        "temperature_c": obs.temperature_c,
-        "wind_speed": obs.wind_speed,
-        "pressure": obs.pressure,
-        "humidity": obs.humidity,
-        "observed_at": obs.observed_at.isoformat() if obs.observed_at else None,
-        "created_at": obs.created_at.isoformat() if obs.created_at else None,
-    }
-
-def _stream_batch(client: bigquery.Client, table_ref: str, rows: list[dict], dry_run: bool) -> int:
-    """Stream a list of row dicts to BigQuery."""
-    if dry_run:
-        logger.info("[DRY-RUN] Would stream %d rows to %s", len(rows), table_ref)
-        return 0
-
-    errors = client.insert_rows_json(table_ref, rows)
-    if errors:
-        logger.error("BigQuery insert errors in batch: %s", errors)
-        return len(errors)
-    return 0
+    for order in itertools.product(p_values, d_values, q_values):
+        for seasonal_order_pdq in itertools.product(P_values, D_values, Q_values):
+            seasonal_order = (*seasonal_order_pdq, s)
+            result = _try_fit(train, order, seasonal_order)
+            if result is not None and result.aic < best_aic:
+                best_aic = result.aic
+                best_result = result
+                best_order = order
+                best_seasonal_order = seasonal_order
+    # ... falls back to ARIMA(1,1,1) if no model converges
 ```
 
     </div>
 
     <!-- Tab 2 -->
-    <input type="radio" name="code_tabs_macro" role="tab" class="tab font-semibold" aria-label="BigQuery Sub-Zero Streak" />
+    <input type="radio" name="code_tabs_macro" role="tab" class="tab font-semibold" aria-label="Gemini Agent Tools" />
     <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-4">
-      <p class="text-xs text-base-content/80 mb-3"><b>File:</b> <code>sql/bigquery/longest_subzero_streak.sql</code> — Gaps & Islands consecutive freeze streak query:</p>
+      <p class="text-xs text-base-content/80 mb-3"><b>File:</b> <code>services/ai_agent.py</code> - the Gemini agent is given four fixed BigQuery query functions to call (excerpt):</p>
 
-```sql
--- Gaps and Islands: Identify longest consecutive streaks of sub-zero temperature days
-WITH DailyTemperatures AS (
-    SELECT 
-        location_id,
-        DATE(observed_at) AS observation_date,
-        AVG(temperature_c) AS daily_temp
-    FROM `weather_data.observations_v2`
-    GROUP BY location_id, DATE(observed_at)
-    HAVING AVG(temperature_c) < 0
-),
-StreakGroups AS (
-    SELECT 
-        location_id,
-        observation_date,
-        daily_temp,
-        -- Group consecutive dates using difference of row numbers
-        observation_date - INTERVAL ROW_NUMBER() OVER (PARTITION BY location_id ORDER BY observation_date) DAY AS streak_group
-    FROM DailyTemperatures
+```python
+config = types.GenerateContentConfig(
+    tools=[
+        query_macro_weather_mart,
+        check_data_freshness,
+        get_climate_extremes,
+        compare_city_climates,
+    ],
+    temperature=0.2,
+    system_instruction=(
+        "You are an expert Macroeconomic & Climate Research Analyst. "
+        "Always use your tools to query the official BigQuery data marts and database before answering. "
+        # ...
+        "Provide executive summaries with key statistics and trends."
+    ),
 )
-SELECT 
-    location_id,
-    MIN(observation_date) AS streak_start,
-    MAX(observation_date) AS streak_end,
-    COUNT(*) AS consecutive_subzero_days,
-    ROUND(AVG(daily_temp), 2) AS avg_streak_temp
-FROM StreakGroups
-GROUP BY location_id, streak_group
-ORDER BY consecutive_subzero_days DESC;
 ```
 
     </div>
 
     <!-- Tab 3 -->
-    <input type="radio" name="code_tabs_macro" role="tab" class="tab font-semibold" aria-label="PostgreSQL Upsert" />
+    <input type="radio" name="code_tabs_macro" role="tab" class="tab font-semibold" aria-label="dbt Retail Mart SQL" />
     <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-4">
-      <p class="text-xs text-base-content/80 mb-3"><b>File:</b> <code>sql/postgres/upsert_weather.sql</code> — Idempotent <code>ON CONFLICT</code> PostgreSQL deduplication:</p>
+      <p class="text-xs text-base-content/80 mb-3"><b>File:</b> <code>dbt/models/marts/fct_monthly_retail_macro.sql</code> - dbt model joining monthly retail sales onto the macro and weather fact table:</p>
 
 ```sql
-INSERT INTO weather_observations (location_id, observed_at, temperature_c, humidity, created_at)
-VALUES (:location_id, :observed_at, :temperature_c, :humidity, NOW())
-ON CONFLICT (location_id, observed_at) 
-DO UPDATE SET 
-    temperature_c = EXCLUDED.temperature_c,
-    humidity = EXCLUDED.humidity,
-    updated_at = NOW();
+SELECT
+    w.*,
+    r.total_retail_sales_millions,
+    r.total_retail_sales_yoy_growth_pct,
+    r.grocery_sales_millions,
+    r.ecommerce_sales_millions,
+    r.auto_sales_millions,
+    r.clothing_sales_millions
+FROM {{ ref('fct_monthly_macro_weather') }} w
+LEFT JOIN {{ ref('int_retail_pivoted') }} r
+ON
+    w.year_month = FORMAT('%d-%02d', r.observed_year, r.observed_month)
 ```
 
     </div>

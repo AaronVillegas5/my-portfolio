@@ -8,106 +8,182 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <div class="text-3xl w-full font-bold mb-5">Featured Projects</div>
   </div>
 
-  <!-- 1. Walmart Sales Data Analysis -->
+  <!-- 1. Walmart Retail Sales & Inventory Strategy Analysis -->
   <HorizontalCard
-    title="Walmart Sales & Demand Analytics"
+    title="Walmart Retail Sales & Inventory Strategy Analysis"
     img="/walmart-analytics.webp"
-    desc="Automated reporting and analytics pipelines evaluating business KPIs across retail locations. Uncovered a 69% holiday sales lift and evaluated store-level demand volatility using Coefficient of Variation (CV) for inventory planning."
+    desc="Retail demand analysis across 45 stores and 2 years of weekly sales data. Modeled holiday seasonality (including a 69% Christmas surge) and store-level demand variance using Coefficient of Variation (CV) to spot where safety stock ran thin. Built a Tableau dashboard comparing year-over-year revenue, store tiers, and 30-day rolling sales."
     url="/blog/walmart-sales"
-    badge="Data Analytics"
+    badge="Retail Analytics"
     tags={["Python", "SQL", "Tableau", "Pandas", "Demand Planning"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/walmart-sales", target: "_self", primary: true },
-      { text: "📊 Tableau Dashboard", url: "https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard", target: "_blank" },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/walmart_data_analysis", target: "_blank" }
+      { text: "Read Case Study", url: "/blog/walmart-sales", target: "_self", primary: true },
+      { text: "Tableau Dashboard", url: "https://public.tableau.com/app/profile/aaron.villegas3123/viz/WalmartSalesAnalysis_17802549747750/KPIDashboard", target: "_blank" },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/walmart_data_analysis", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 2. Environmental Health Risk Mapping Platform -->
+  <!-- 2. Multi-Echelon Replenishment & Stockout Risk Simulator -->
+  <HorizontalCard
+    title="Multi-Echelon Replenishment & Stockout Risk Simulator"
+    img="/replenishment-simulator.webp"
+    desc="Interactive supply chain simulator that models safety stock, reorder points, and lead-time variability across 50,000+ orders. Uses DuckDB for sub-second local SQL queries without database overhead, SciPy Monte Carlo simulations to calculate stockout risks under demand spikes, and Streamlit/Plotly for scenario testing."
+    url="https://github.com/AaronVillegas5/supply-chain-replenishment-simulator"
+    badge="Inventory Analytics"
+    tags={["Python", "DuckDB", "SciPy", "Streamlit", "Plotly", "Monte Carlo"]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 3. Macroeconomic & Climate Analytics Platform (Macro Data Pipeline) -->
+  <HorizontalCard
+    title="Macroeconomic & Climate Analytics Platform (Macro Data Pipeline)"
+    img="/macro-pipeline.webp"
+    desc="Data platform that ingests 9M+ time-series records from FRED, Open-Meteo, and US Census Retail APIs into PostgreSQL and BigQuery. Orchestrated daily with Apache Airflow in Docker and modeled in BigQuery with dbt. Features a SARIMAX forecasting engine for retail trends and a FastAPI backend with a Gemini agent that answers plain-English questions using four BigQuery query tools."
+    url="/blog/macro-data-pipeline"
+    badge="Data Engineering"
+    tags={["Python", "Apache Airflow", "dbt", "BigQuery", "Snowflake", "PostgreSQL", "Docker", "FastAPI", "SARIMAX"]}
+    custom_links={[
+      { text: "Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 4. The Frontier Brief -->
+  <HorizontalCard
+    title="The Frontier Brief: Daily AI Intelligence Pipeline"
+    desc="A daily AI briefing I built and run. Every morning it pulls from AI lab blogs, Reddit, Hacker News, Mastodon and GitHub Trending, ranks what matters, and drafts the newsletter with a writer model. A second model reviews the draft, and plain code checks catch repeated wording and mismatched names before it goes out. Each edition is emailed through Buttondown and saved to a public archive. It runs on GitHub Actions for about 30 cents a day, retries on failure, alerts me if a day is missed, and has 440+ tests."
+    url="https://aaronvillegas5.github.io/frontier-brief/"
+    badge="Autonomous Pipeline"
+    tags={["Python", "OpenAI API", "GitHub Actions", "Buttondown", "Supabase", "pytest"]}
+    custom_links={[
+      { text: "Read the Latest Edition", url: "https://aaronvillegas5.github.io/frontier-brief/", target: "_blank", primary: true }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 5. Home Server on a Raspberry Pi 5 -->
+  <HorizontalCard
+    title="Home Server on a Raspberry Pi 5"
+    desc="A headless Raspberry Pi 5 I set up and run at home. It runs background Python jobs and AI workflows, checks an inbox over IMAP for job-application emails, takes deduplicated backups with Rustic, and keeps files in sync across my machines with Syncthing."
+    url="https://github.com/AaronVillegas5"
+    badge="Edge Systems"
+    tags={["ARM64 Linux", "Docker", "Python", "Node.js", "IMAP/TLS", "Rustic", "Syncthing", "ZRAM"]}
+    custom_links={[
+      { text: "GitHub", url: "https://github.com/AaronVillegas5", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 6. Environmental Health Risk Mapping Platform -->
   <HorizontalCard
     title="Environmental Health Risk Mapping Platform"
     img="/env-risk-map.webp"
-    desc="Datathon Winner (Best Visualization out of 39 teams). Engineered a Health Vulnerability Index (HVI) using XGBoost and 10-fold cross-validation across 700+ ZIP codes, backed by a real-time FastAPI inference engine."
+    desc="Won Best Visualization out of 39 teams. Blended CalEnviroScreen, EPA, and census data covering 8,000+ California census tracts into a composite Health Vulnerability Index. Trained XGBoost models to predict respiratory and cardiac risk factors, deployed behind a FastAPI service for real-time risk scores and nearest-neighbor lookups."
     url="/blog/environmental-health-risk-map"
     badge="Datathon Winner"
     tags={["Python", "XGBoost", "FastAPI", "Spatial Analysis", "Machine Learning"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
-      { text: "🌐 Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
+      { text: "Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
+      { text: "Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 3. Macro Data Pipeline -->
+  <!-- 7. ResuMatch: AI Resume & Job Description Analyzer -->
   <HorizontalCard
-    title="Macroeconomic Time-Series Data Pipeline"
-    img="/macro-pipeline.webp"
-    desc="Multi-source time-series ETL pipeline ingesting macroeconomic and weather APIs (FRED, Open-Meteo) into PostgreSQL, BigQuery, and Snowflake with raw API response persistence to AWS S3 for auditability."
-    url="/blog/macro-data-pipeline"
-    badge="Data Engineering"
-    tags={["Python", "PostgreSQL", "BigQuery", "Snowflake", "AWS S3", "REST APIs"]}
+    title="ResuMatch: AI Resume & Job Description Analyzer"
+    desc="Resume analysis tool built during ZotHacks. Uses Python, FastAPI, and OpenAI to parse resumes against job postings, running TF-IDF keyword extraction and text matching to highlight missing qualifications."
+    url="https://github.com/AaronVillegas5"
+    badge="ZotHacks Hackathon"
+    tags={["Python", "FastAPI", "OpenAI API", "React", "NLP", "TF-IDF"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
+      { text: "GitHub", url: "https://github.com/AaronVillegas5", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 4. A/B Testing Analysis -->
+  <!-- 8. A/B Testing Analysis -->
   <HorizontalCard
     title="A/B Testing Analysis of Digital Marketing Campaigns"
     img="/ab-testing.webp"
-    desc="Statistical hypothesis testing on a 588K-user marketing dataset. Executed sample size validation via unequal-group power analysis and two-proportion z-tests, confirming a statistically significant 0.7% conversion lift (p < 0.05)."
+    desc="Statistical hypothesis testing on 588,000+ customer records. Used unequal-group power analysis and two-proportion z-tests to measure conversion differences, validating a statistically significant 0.76 percentage-point conversion lift (1.79% to 2.55%, p < 0.001) to guide advertising spend."
     url="/blog/ab-test-marketing-campaign"
     badge="A/B Testing"
-    tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas"]}
+    tags={["Python", "statsmodels", "A/B Testing", "Hypothesis Testing", "Pandas", "Seaborn"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/ab-test-marketing-campaign", target: "_self", primary: true },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/ABTest-MarketingCampaign", target: "_blank" }
+      { text: "Read Case Study", url: "/blog/ab-test-marketing-campaign", target: "_self", primary: true },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/ABTest-MarketingCampaign", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 5. Predicting Marketing Success -->
+  <!-- 9. Predicting Marketing Success with Machine Learning -->
   <HorizontalCard
     title="Predicting Marketing Success with Machine Learning"
     img="/marketing-ml.webp"
-    desc="Customer targeting model built on 40k+ bank marketing records achieving 85% accuracy. Handled class imbalance via class weighting, threshold tuning, and random forest feature importance to identify top macroeconomic predictors."
+    desc="Customer targeting model trained on 40,000+ bank marketing records. Addressed class imbalance using SMOTE and threshold tuning (85% accuracy, 0.62 recall), evaluating random forest feature importance to identify which macroeconomic indicators correlated most with deposit subscriptions."
     url="/blog/bank-marketing-ml"
     badge="Machine Learning"
-    tags={["Python", "scikit-learn", "SQL", "Class Imbalance", "Random Forest"]}
+    tags={["Python", "scikit-learn", "Pandas", "SQL", "SMOTE", "Random Forest"]}
     custom_links={[
-      { text: "📖 Read Case Study", url: "/blog/bank-marketing-ml", target: "_self", primary: true },
-      { text: "💻 GitHub", url: "https://github.com/AaronVillegas5/uci-bank-marketing-analysis", target: "_blank" }
+      { text: "Read Case Study", url: "/blog/bank-marketing-ml", target: "_self", primary: true },
+      { text: "GitHub", url: "https://github.com/AaronVillegas5/uci-bank-marketing-analysis", target: "_blank" }
     ]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 6. Fixed-Income & Portfolio Modeling -->
+  <!-- 10. Global Superstore Data Normalization & Analytics Dashboard -->
+  <HorizontalCard
+    title="Global Superstore Data Normalization & Analytics Dashboard"
+    desc="Normalized a flat dataset of 51,290 global sales records into a 3-table relational schema (Orders Fact, Customers Dim, Products Dim) with primary and foreign keys to eliminate duplication. Built Excel Pivot Table dashboards tracking regional profitability and shipping fulfillment lead times."
+    url="https://github.com/AaronVillegas5"
+    badge="BI & Modeling"
+    tags={["Excel", "Data Normalization", "Pivot Tables", "XLOOKUP", "Relational Modeling"]}
+    custom_links={[
+      { text: "GitHub", url: "https://github.com/AaronVillegas5", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 11. Fixed-Income & Portfolio Modeling -->
   <HorizontalCard
     title="Fixed-Income & Portfolio Modeling"
     img="/portfolio-modeling.webp"
-    desc="Dynamic portfolio model applying Markowitz portfolio theory and the one-fund theorem to optimize asset allocation. Modeled yield to maturity, cash flow streams, and portfolio immunization strategies for fixed-income securities."
+    desc="Excel financial models applying Markowitz portfolio theory and the one-fund theorem to calculate efficient asset allocations. Evaluated bond pricing, cash flow schedules, and yield to maturity, modeling duration matching and portfolio immunization techniques."
     url="https://github.com/AaronVillegas5"
     badge="Quant Modeling"
     tags={["Excel", "Portfolio Theory", "Fixed Income", "Risk Management"]}
   />
   <div class="divider my-0"></div>
 
-  <!-- 7. Black-Scholes Model Paper -->
+  <!-- 12. Numerical Linear Algebra & Algorithmic Stability -->
+  <HorizontalCard
+    title="Numerical Linear Algebra & Algorithmic Stability"
+    desc="UCI Directed Reading Program project in computational math. Implemented Classical vs. Modified Gram-Schmidt and QR decomposition in Python to benchmark loss of orthogonality on ill-conditioned Hilbert matrices. Built an SVD algorithm from scratch using iterative QR decomposition on A^TA for image rank approximations."
+    url="https://github.com/AaronVillegas5"
+    badge="Computational Math"
+    tags={["Python", "NumPy", "OpenCV", "Matplotlib", "SVD", "LaTeX"]}
+    custom_links={[
+      { text: "GitHub", url: "https://github.com/AaronVillegas5", target: "_blank" }
+    ]}
+  />
+  <div class="divider my-0"></div>
+
+  <!-- 13. Black-Scholes Model Paper -->
   <HorizontalCard
     title="Deriving & Understanding the Black-Scholes Option Pricing Model"
     img="/black-scholes.webp"
-    desc="Quantitative research paper deriving the Black-Scholes PDE using Itô's Lemma, Geometric Brownian Motion, and dynamic delta hedging. Evaluated risk-neutral measures, martingales, and stochastic volatility limitations."
+    desc="Research paper deriving the Black-Scholes PDE using Ito's Lemma, Geometric Brownian Motion, and dynamic delta hedging under no-arbitrage assumptions. Reviews risk-neutral valuation, martingale pricing, and limitations when volatility is stochastic."
     url="/projects/black-scholes-paper"
     target="_self"
     badge="Research Paper"
     tags={["Quantitative Finance", "Stochastic Calculus", "LaTeX", "Option Pricing"]}
     custom_links={[
-      { text: "📄 Preview Paper", url: "/projects/black-scholes-paper", target: "_self", primary: true },
-      { text: "📥 Download PDF", url: "/black-scholes-paper.pdf", target: "_blank" }
+      { text: "Preview Paper", url: "/projects/black-scholes-paper", target: "_self", primary: true },
+      { text: "Download PDF", url: "/black-scholes-paper.pdf", target: "_blank" }
     ]}
   />
 </BaseLayout>
