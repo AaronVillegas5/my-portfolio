@@ -1,0 +1,190 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="Actuarial & Quantitative Modeling | Aaron Kyle Villegas" sideBarActiveItemID="actuarial">
+  <div class="pb-8 mt-4">
+    <div class="text-xl py-1 text-base-content/70">Quantitative Profile</div>
+    <div class="text-4xl font-extrabold tracking-tight">Aaron Kyle Villegas</div>
+    <div class="text-xl py-2 font-semibold text-primary">
+      Actuarial Candidate | Applied Mathematics & Stochastic Modeling
+    </div>
+    <p class="text-base leading-relaxed max-w-3xl mt-2 text-base-content/85">
+      Applied Mathematics graduate from UC Irvine (B.S., 3.911 GPA, Cum Laude). Specializing in 
+      probability theory, stochastic processes, financial derivatives, and Monte Carlo simulation. 
+      Actively sitting for Society of Actuaries (SOA) examinations.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="btn btn-primary btn-sm" href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+        Download Resume
+      </a>
+      <a class="btn btn-outline btn-sm" href="mailto:akvilleg@uci.edu">Email</a>
+      <a class="btn btn-outline btn-sm" href="https://linkedin.com/in/aaronvillegas1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="btn btn-outline btn-sm" href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Actuarial Exams & Credentials -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Actuarial Credentials & Exams (SOA)</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="p-4 rounded-lg bg-base-200 border border-base-300">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-lg">Exam P (Probability)</span>
+          <span class="badge badge-success font-semibold">Passed</span>
+        </div>
+        <p class="text-xs text-base-content/70 mt-1">Society of Actuaries | September 2026</p>
+        <p class="text-sm text-base-content/80 mt-2">
+          Calculus-based probability, univariate and multivariate probability distributions, conditional expectation, moment generating functions, transformations, and order statistics.
+        </p>
+      </div>
+
+      <div class="p-4 rounded-lg bg-base-200 border border-base-300">
+        <div class="flex items-center justify-between">
+          <span class="font-bold text-lg">Exam FM (Financial Mathematics)</span>
+          <span class="badge badge-outline font-semibold">Sitting Dec 2026</span>
+        </div>
+        <p class="text-xs text-base-content/70 mt-1">Society of Actuaries | In Preparation</p>
+        <p class="text-sm text-base-content/80 mt-2">
+          Time value of money, annuities with non-level payments, loan amortization schedules, bond valuation, Macaulay and modified duration, convexity, and cash flow immunization.
+        </p>
+      </div>
+    </div>
+
+    <!-- VEE Status -->
+    <div class="mt-4 p-4 rounded-lg bg-base-200/60 border border-base-300 text-sm">
+      <div class="font-bold text-base mb-1">Validation by Educational Experience (VEE) Status</div>
+      <ul class="list-disc ml-5 grid gap-1 text-base-content/85">
+        <li>
+          <b>VEE Mathematical Statistics:</b> Satisfied via UC Irvine coursework (STATS 110: A, STATS 111: A+).
+        </li>
+        <li>
+          <b>VEE Economics:</b> Macroeconomics component satisfied via AP Economics (Score: 5).
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Quantitative Coursework -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Quantitative Coursework (UC Irvine)</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Probability I & II</span>
+        <span class="text-xs text-base-content/70">MATH 130A (A) / MATH 130B (B+)</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Financial Derivatives & Fixed Income</span>
+        <span class="text-xs text-base-content/70">MATH 134B (A+) / MATH 134A (A+)</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Statistical Methods for Data I & II</span>
+        <span class="text-xs text-base-content/70">STATS 110 (A) / STATS 111 (A+)</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Real Analysis I & II</span>
+        <span class="text-xs text-base-content/70">MATH 140A (A-) / MATH 140B (A)</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Optimization I & II</span>
+        <span class="text-xs text-base-content/70">MATH 110A (A) / MATH 110B (A+)</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Numerical Analysis I & II</span>
+        <span class="text-xs text-base-content/70">MATH 105A (A) / MATH 105B (A)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Quantitative Risk & Modeling Projects -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Quantitative Risk & Modeling Projects</div>
+
+    <!-- 1. Black-Scholes -->
+    <HorizontalCard
+      title="Deriving & Understanding the Black-Scholes Option Pricing Model"
+      img="/black-scholes.webp"
+      desc="Mathematical paper deriving the Black-Scholes PDE using Ito's Lemma, Geometric Brownian Motion (GBM), and dynamic delta hedging under no-arbitrage assumptions. Explores risk-neutral valuation and limitations under stochastic volatility."
+      url="/projects/black-scholes-paper"
+      badge="Stochastic Calculus"
+      tags={["Stochastic Processes", "Ito's Lemma", "Dynamic Hedging", "PDEs", "Quantitative Finance"]}
+      custom_links={[
+        { text: "Read Paper", url: "/projects/black-scholes-paper", target: "_self", primary: true },
+        { text: "Download PDF", url: "/black-scholes-paper.pdf", target: "_blank" }
+      ]}
+    />
+    <div class="divider my-0"></div>
+
+    <!-- 2. Replenishment Simulator -->
+    <HorizontalCard
+      title="Multi-Echelon Replenishment & Stockout Risk Simulator"
+      img="/replenishment-simulator.webp"
+      desc="Supply chain simulation engine calculating safety stock and reorder points via normal distribution variance formulas (SciPy norm.ppf). Runs a 1,000-iteration, 90-day Monte Carlo simulation drawing daily demand and lead times from normal distributions with non-negative bounds to model inventory depletion trajectories and quantify stockout probabilities."
+      url="https://github.com/AaronVillegas5/supply-chain-replenishment-simulator"
+      badge="Monte Carlo Simulation"
+      tags={["Python", "SciPy", "Monte Carlo", "DuckDB", "Streamlit", "Plotly"]}
+      custom_links={[
+        { text: "GitHub", url: "https://github.com/AaronVillegas5/supply-chain-replenishment-simulator", target: "_blank", primary: true }
+      ]}
+    />
+    <div class="divider my-0"></div>
+
+    <!-- 3. Fixed-Income & Portfolio Modeling -->
+    <HorizontalCard
+      title="Fixed-Income & Portfolio Modeling"
+      img="/portfolio-modeling.webp"
+      desc="Dynamic Excel financial models applying Markowitz portfolio theory and the one-fund theorem to calculate efficient asset allocations. Modeled bond prices, cash flow streams, yield to maturity, duration matching, and portfolio immunization strategies."
+      url="#"
+      badge="Asset-Liability Modeling"
+      tags={["Excel", "Portfolio Theory", "Fixed Income", "Immunization", "Risk Management"]}
+    />
+    <div class="divider my-0"></div>
+
+    <!-- 4. A/B Testing -->
+    <HorizontalCard
+      title="A/B Testing Analysis of Digital Marketing Campaigns"
+      img="/ab-testing.webp"
+      desc="Statistical hypothesis testing on 588,000+ customer records. Conducted two-proportion z-tests and unequal-group statistical power analysis to measure conversion rate differences, validating a statistically significant 0.76 percentage-point lift (1.79% to 2.55%, p < 0.001)."
+      url="/blog/ab-test-marketing-campaign"
+      badge="Statistical Hypothesis Testing"
+      tags={["Python", "statsmodels", "Hypothesis Testing", "Power Analysis", "Pandas"]}
+      custom_links={[
+        { text: "Read Case Study", url: "/blog/ab-test-marketing-campaign", target: "_self", primary: true },
+        { text: "GitHub", url: "https://github.com/AaronVillegas5/ABTest-MarketingCampaign", target: "_blank" }
+      ]}
+    />
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Technical & Analytical Skills -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Actuarial & Computational Skills</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <h4 class="font-bold border-b pb-1 mb-2">Mathematical & Actuarial Methods</h4>
+        <ul class="list-disc ml-5 grid gap-1 text-base-content/85">
+          <li>Probability Theory, Univariate & Multivariate Distributions</li>
+          <li>Financial Mathematics, Cash Flow Discounting, Duration & Convexity</li>
+          <li>Monte Carlo Simulation, Sensitivity Analysis, Scenario Testing</li>
+          <li>Statistical Hypothesis Testing, Two-Proportion Z-Tests, Power Analysis</li>
+          <li>Stochastic Calculus, Geometric Brownian Motion, Ito's Lemma</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold border-b pb-1 mb-2">Computational Tools & Languages</h4>
+        <ul class="list-disc ml-5 grid gap-1 text-base-content/85">
+          <li>Python (NumPy, SciPy, Pandas, statsmodels, Matplotlib, Plotly)</li>
+          <li>R (Statistical methods, probability modeling)</li>
+          <li>SQL (PostgreSQL, BigQuery, DuckDB)</li>
+          <li>Excel (Advanced modeling, financial formulas, scenario analysis)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
