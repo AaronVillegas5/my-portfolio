@@ -42,10 +42,10 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
       subtitle="September 2026 to Present at HUMN Solutions (Align AI), through the Apprenticely program"
     >
       <ul class="list-disc ml-4 text-sm grid gap-1.5">
-        <li>Built and run The Frontier Brief, a daily AI newsletter: it collects sources each morning, drafts and reviews the edition, emails it to subscribers, and posts it to a public archive.</li>
-        <li>After a code review, added delivery safeguards so a failed or repeated run can't skip a day or send twice: a delivery marker, automatic retries, and an email alert when an edition is missing.</li>
-        <li>Wrote 440+ automated tests, including checks that catch repeated wording and inconsistent product names before an edition goes out.</li>
-        <li>Set up the daily scheduler on Google Cloud (Cloud Scheduler and Cloud Functions) to replace the Cloudflare one.</li>
+        <li>Architected an automated intelligence pipeline using Python, Supabase (pgvector), and Voyage AI embeddings to rank and synthesize developer signals across 13+ sources; built a NetworkX co-occurrence graph to isolate macro trends from noise.</li>
+        <li>Designed and implemented a multi-user PostgreSQL (Supabase) schema for a content-generation platform, establishing row-level security (RLS) policies and building a background ingest worker with retry queues to prevent duplicate processing.</li>
+        <li>Engineered an autonomous multi-stage LLM critic with fallback routing across OpenAI, Claude, and Gemini, enforcing verbatim source-quote verification and numerical validation before publication.</li>
+        <li>Added delivery safeguards and cloud scheduling on Google Cloud (Cloud Scheduler and Cloud Functions) with duplicate-send protection, automatic retries, missing-edition alerts, and 440+ automated tests.</li>
       </ul>
     </TimeLineElement>
 
@@ -383,7 +383,7 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
     <div>
       <h4 class="font-bold border-b pb-1 mb-2">Libraries & Frameworks</h4>
       <ul class="list-disc ml-5 grid gap-1">
-        <li>Pandas, NumPy, scikit-learn</li>
+        <li>Pandas, NumPy, scikit-learn, NetworkX</li>
         <li>PyTorch, XGBoost, statsmodels, Seaborn, Matplotlib</li>
         <li>FastAPI, REST APIs</li>
       </ul>
@@ -392,7 +392,7 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
       <h4 class="font-bold border-b pb-1 mb-2">Tools & Data Platforms</h4>
       <ul class="list-disc ml-5 grid gap-1">
         <li>Tableau, PowerBI, Apache Airflow, dbt, dbt-bigquery</li>
-        <li>BigQuery, Snowflake, PostgreSQL, Docker, AWS S3</li>
+        <li>BigQuery, Snowflake, PostgreSQL, Supabase, Docker, AWS S3</li>
         <li>Google Gemini API, Git, Excel, Linux CLI</li>
       </ul>
     </div>
