@@ -109,10 +109,10 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <!-- 2. Frontier Brief -->
     <HorizontalCard
       title="The Frontier Brief: Automated Ingestion & Validation Pipeline"
-      desc="Automated pipeline that ingests, ranks and synthesizes data from 13+ public sources into a daily newsletter, built on Supabase (pgvector) and Voyage AI embeddings. Deterministic validation drops any fact whose quote is missing from its source, flags any figure not found in the source data, and health-checks every link. Tracks per-source health (items, errors, latency), falls back across model providers, and runs on GitHub Actions with a Cloudflare Worker cron trigger, a duplicate-run guard, one automatic retry, a missing-edition alert, and 200+ automated tests."
+      desc="Automated pipeline that ingests, ranks and synthesizes data from 13+ public sources into a daily newsletter, built on Supabase (pgvector) and Voyage AI embeddings. Deterministic validation drops any fact whose quote is missing from its source, flags any figure not found in the source data, and health-checks every link. Tracks per-source health (items, errors, latency), falls back across model providers, and runs on GitHub Actions, scheduled by Google Cloud Scheduler and Cloud Functions with a Cloudflare Worker as backup, plus a duplicate-run guard, one automatic retry, a missing-edition alert, and 650+ automated tests."
       url="https://aaronvillegas5.github.io/frontier-brief/"
       badge="Data Quality & Reliability"
-      tags={["Python", "Supabase", "pgvector", "GitHub Actions", "Cloudflare Workers", "pytest"]}
+      tags={["Python", "Supabase", "pgvector", "GitHub Actions", "Google Cloud Scheduler", "Cloudflare Workers", "pytest"]}
       custom_links={[
         { text: "Read the Latest Edition", url: "https://aaronvillegas5.github.io/frontier-brief/", target: "_blank", primary: true }
       ]}

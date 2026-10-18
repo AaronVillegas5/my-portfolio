@@ -45,7 +45,7 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
         <li>Architected an automated intelligence pipeline using Python, Supabase (pgvector), and Voyage AI embeddings to rank and synthesize developer signals across 13+ sources; built a NetworkX co-occurrence graph to isolate macro trends from noise.</li>
         <li>Designed and implemented a multi-user PostgreSQL (Supabase) schema for a content-generation platform, establishing row-level security (RLS) policies and building a background ingest worker with retry queues to prevent duplicate processing.</li>
         <li>Engineered an autonomous multi-stage LLM critic with fallback routing across OpenAI, Claude, and Gemini, enforcing verbatim source-quote verification and numerical validation before publication.</li>
-        <li>Added delivery safeguards and cloud scheduling on Google Cloud (Cloud Scheduler and Cloud Functions) with duplicate-send protection, automatic retries, missing-edition alerts, and 440+ automated tests.</li>
+        <li>Added delivery safeguards and cloud scheduling on Google Cloud (Cloud Scheduler and Cloud Functions) with duplicate-send protection, automatic retries, missing-edition alerts, and 650+ automated tests.</li>
       </ul>
     </TimeLineElement>
 
@@ -186,7 +186,7 @@ import TimeLineElement from "../components/cv/TimeLine.astro";
         <span class="text-xs text-base-content/70">September 2026 - Present</span>
       </div>
       <p class="text-xs text-base-content/80 mt-1.5 leading-relaxed">
-        A daily AI briefing I built and run. Every morning it pulls from AI lab blogs, Reddit, Hacker News, Mastodon and GitHub Trending, ranks what matters, and drafts the newsletter with a writer model. A second model reviews the draft, and plain code checks catch repeated wording and mismatched names before it goes out. Each edition is emailed through Buttondown and saved to a public archive. It runs on GitHub Actions for about 30 cents a day, retries on failure, alerts me if a day is missed, and has 440+ tests.
+        A daily AI briefing I built and run. Every morning it pulls from AI lab blogs, Reddit, Hacker News, Mastodon and GitHub Trending, ranks what matters, and drafts the newsletter with a writer model. A second model reviews the draft, and plain code checks catch repeated wording and mismatched names before it goes out. Each edition is emailed through Buttondown and saved to a public archive. It runs on GitHub Actions, started each morning by Google Cloud Scheduler with a Cloudflare Worker as backup, for about 30 cents a day in model costs. It retries on failure, alerts me if a day is missed, and has 650+ tests.
       </p>
       <div class="flex flex-wrap gap-1 mt-2.5">
         <span class="badge badge-outline badge-xs">Python</span>
