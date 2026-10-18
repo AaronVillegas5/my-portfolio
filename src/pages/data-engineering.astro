@@ -1,0 +1,197 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import HorizontalCard from "../components/HorizontalCard.astro";
+---
+
+<BaseLayout title="Data Engineering | Aaron Kyle Villegas" sideBarActiveItemID="data-engineering">
+  <div class="pb-8 mt-4">
+    <div class="text-xl py-1 text-base-content/70">Data Engineering Profile</div>
+    <div class="text-4xl font-extrabold tracking-tight">Aaron Kyle Villegas</div>
+    <div class="text-xl py-2 font-semibold text-primary">
+      Data Engineering | Python, SQL, dbt, Airflow
+    </div>
+    <p class="text-base leading-relaxed max-w-3xl mt-2 text-base-content/85">
+      Applied and Computational Mathematics graduate from UC Irvine (B.S., 3.911 GPA, Cum Laude) who builds
+      ETL/ELT pipelines, dbt data models and automated data-quality checks. Hands-on with Airflow, BigQuery,
+      PostgreSQL, Docker and GitHub Actions CI/CD, and currently a software developer intern at Humn Solutions.
+    </p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a class="btn btn-primary btn-sm" href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
+        Download Resume
+      </a>
+      <a class="btn btn-outline btn-sm" href="mailto:akvilleg@uci.edu">Email</a>
+      <a class="btn btn-outline btn-sm" href="https://linkedin.com/in/aaronvillegas1" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a class="btn btn-outline btn-sm" href="https://github.com/AaronVillegas5" target="_blank" rel="noopener noreferrer">GitHub</a>
+    </div>
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Stack at a glance -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Pipeline Stack</div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 text-sm">
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Orchestration &amp; CI/CD</span>
+        <span class="text-xs text-base-content/70">Apache Airflow, GitHub Actions, Docker Compose</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Warehouses &amp; Databases</span>
+        <span class="text-xs text-base-content/70">BigQuery, PostgreSQL, Supabase, DuckDB, Snowflake (basic)</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Transformation &amp; Modeling</span>
+        <span class="text-xs text-base-content/70">dbt staging, intermediate and marts layers; window-function SQL</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Ingestion</span>
+        <span class="text-xs text-base-content/70">Python, Spark, AWS S3, REST APIs (FRED, Open-Meteo, US Census)</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Data Quality &amp; Testing</span>
+        <span class="text-xs text-base-content/70">dbt tests, pytest, pgTAP, failure alerts</span>
+      </div>
+      <div class="p-3 bg-base-200/60 rounded border border-base-300">
+        <span class="font-semibold block">Serving</span>
+        <span class="text-xs text-base-content/70">FastAPI, Streamlit, Plotly</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Experience -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Experience</div>
+    <div class="grid gap-4 text-sm">
+      <div class="p-4 rounded-lg bg-base-200/60 border border-base-300">
+        <div class="font-bold text-base">Humn Solutions | Software Developer Intern</div>
+        <p class="text-xs text-base-content/70 mt-1">Remote | September 2026 – Present</p>
+        <ul class="list-disc ml-5 mt-2 grid gap-1 text-base-content/85">
+          <li>Architected an automated intelligence pipeline using Python, Supabase (pgvector), and Voyage AI embeddings to collect, rank, and synthesize daily technical AI lab releases and developer sentiment across 13+ public sources.</li>
+          <li>Designed and implemented a multi-user Postgres (Supabase) schema for a content-generation platform, with shared video and theme tables so each video is processed once for all followers, plus a job queue with retries and backoff.</li>
+          <li>Found and fixed an idempotency bug in a job-queue pipeline, where a second user requesting an already-processed video was never queued and deleted outputs could be recreated, by recording one draft job per user and video; wrote the tests first.</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-lg bg-base-200/60 border border-base-300">
+        <div class="font-bold text-base">Handshake AI | AI Benchmark Engineering Fellow</div>
+        <p class="text-xs text-base-content/70 mt-1">Remote | July 2026 – August 2026</p>
+        <ul class="list-disc ml-5 mt-2 grid gap-1 text-base-content/85">
+          <li>Programmatically injected overlapping data anomalies (time zone shifts, unit glitches, multi-day thermal drift) to simulate silent data pipeline failures and test anomaly detection capabilities.</li>
+          <li>Developed automated pytest verification suites using OLS detrending and median aggregation to evaluate model outputs against strict requirements, saving 3 to 4 engineering hours per incident by replacing manual debugging with automated CI/CD verification.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Projects -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Data Engineering Projects</div>
+
+    <!-- 1. Macro Data Pipeline -->
+    <HorizontalCard
+      title="Macroeconomic & Climate Analytics Platform (Macro Data Pipeline)"
+      img="/macro-pipeline.webp"
+      desc="End-to-end ETL/ELT pipeline sourcing 9M+ time-series records from FRED, Open-Meteo and the US Census Retail API into PostgreSQL and BigQuery. Models analytics-ready marts in dbt (staging, intermediate, marts) with custom bounds tests and gaps-and-islands macros, orchestrated daily with Apache Airflow in Docker Compose. A GitHub Actions pipeline mirrors the DAG with a parallel ingestion matrix, sequential dbt transformations and data-quality tests, and Discord failure alerts, eliminating 3 GB of container overhead in CI."
+      url="/blog/macro-data-pipeline"
+      badge="Orchestration & Warehousing"
+      tags={["Python", "Apache Airflow", "dbt", "BigQuery", "PostgreSQL", "Docker", "GitHub Actions", "FastAPI"]}
+      custom_links={[
+        { text: "Read Case Study", url: "/blog/macro-data-pipeline", target: "_self", primary: true },
+        { text: "GitHub", url: "https://github.com/AaronVillegas5/macro-data-pipeline", target: "_blank" }
+      ]}
+    />
+    <div class="divider my-0"></div>
+
+    <!-- 2. Frontier Brief -->
+    <HorizontalCard
+      title="The Frontier Brief: Automated Ingestion & Validation Pipeline"
+      desc="Automated pipeline that ingests, ranks and synthesizes data from 13+ public sources into a daily newsletter, built on Supabase (pgvector) and Voyage AI embeddings. Deterministic validation drops any fact whose quote is missing from its source, flags any figure not found in the source data, and health-checks every link. Tracks per-source health (items, errors, latency), falls back across model providers, and runs on GitHub Actions with a Cloudflare Worker cron trigger, a duplicate-run guard, one automatic retry, a missing-edition alert, and 200+ automated tests."
+      url="https://aaronvillegas5.github.io/frontier-brief/"
+      badge="Data Quality & Reliability"
+      tags={["Python", "Supabase", "pgvector", "GitHub Actions", "Cloudflare Workers", "pytest"]}
+      custom_links={[
+        { text: "Read the Latest Edition", url: "https://aaronvillegas5.github.io/frontier-brief/", target: "_blank", primary: true }
+      ]}
+    />
+    <div class="divider my-0"></div>
+
+    <!-- 3. Environmental Health Risk Mapping -->
+    <HorizontalCard
+      title="Environmental Health Risk Mapping Platform"
+      img="/env-risk-map.webp"
+      desc="Datathon winner (Best Visualization, 39 teams). Aggregated and cleaned public health data into a composite Health Vulnerability Index covering 8,000+ census tracts (700+ ZIP codes), trained XGBoost models with cross-validation and grid search, and deployed a FastAPI backend serving real-time predictions with K-nearest-neighbors fallback for ZIP codes with no data."
+      url="/blog/environmental-health-risk-map"
+      badge="Data Cleaning & Serving"
+      tags={["Python", "Pandas", "XGBoost", "FastAPI"]}
+      custom_links={[
+        { text: "Read Case Study", url: "/blog/environmental-health-risk-map", target: "_self", primary: true },
+        { text: "Live Demo", url: "https://environmental-health-risk-map.vercel.app", target: "_blank" },
+        { text: "GitHub", url: "https://github.com/AaronVillegas5/environmental-health-risk-map", target: "_blank" }
+      ]}
+    />
+    <div class="divider my-0"></div>
+
+    <!-- 4. Replenishment Simulator -->
+    <HorizontalCard
+      title="Multi-Echelon Replenishment & Stockout Risk Simulator"
+      img="/replenishment-simulator.webp"
+      desc="Analytical data engine built in DuckDB and Pandas to run instant scenario queries across inventory datasets, with SciPy Monte Carlo simulations calculating safety stock and reorder points under demand and lead-time variability. Streamlit and Plotly dashboard for stockout risk scenarios."
+      url="https://github.com/AaronVillegas5/supply-chain-replenishment-simulator"
+      badge="Analytical Engine"
+      tags={["Python", "DuckDB", "Pandas", "SciPy", "Streamlit", "Plotly"]}
+      custom_links={[
+        { text: "GitHub", url: "https://github.com/AaronVillegas5/supply-chain-replenishment-simulator", target: "_blank", primary: true }
+      ]}
+    />
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Skills -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Data Engineering Skills</div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+      <div>
+        <h4 class="font-bold border-b pb-1 mb-2">Methods</h4>
+        <ul class="list-disc ml-5 grid gap-1 text-base-content/85">
+          <li>ETL/ELT pipelines, daily orchestration and CI/CD</li>
+          <li>Data modeling in dbt (staging, intermediate, marts)</li>
+          <li>Idempotent incremental ingestion</li>
+          <li>Job queues with retry and exponential backoff</li>
+          <li>Data quality testing and failure alerting</li>
+          <li>Window-function SQL (rolling averages, year-over-year, gaps-and-islands)</li>
+          <li>Time-series forecasting (SARIMAX)</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold border-b pb-1 mb-2">Languages &amp; Tools</h4>
+        <ul class="list-disc ml-5 grid gap-1 text-base-content/85">
+          <li>Python (Pandas, NumPy, PySpark, statsmodels)</li>
+          <li>SQL (PostgreSQL, BigQuery, DuckDB; basic Snowflake)</li>
+          <li>dbt, dbt-bigquery, Apache Airflow</li>
+          <li>Docker, GitHub Actions, Git, Linux CLI</li>
+          <li>FastAPI, Supabase (Postgres, pgvector), AWS S3</li>
+          <li>pytest, pgTAP</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider my-4"></div>
+
+  <!-- Education -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Education</div>
+    <div class="p-4 rounded-lg bg-base-200/60 border border-base-300 text-sm">
+      <div class="font-bold text-base">University of California, Irvine | June 2026</div>
+      <p class="mt-1 text-base-content/85">
+        B.S. Applied and Computational Mathematics, Specialization in Data Science. GPA 3.911, Cum Laude, completed in 3 years.
+        Relevant coursework: Intro to Data Science Programming (MATH 10: A+), Mathematical Machine Learning (MATH 178: A+).
+      </p>
+    </div>
+  </div>
+</BaseLayout>
