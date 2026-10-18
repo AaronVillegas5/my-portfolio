@@ -8,12 +8,12 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <div class="text-xl py-1 text-base-content/70">Quantitative Profile</div>
     <div class="text-4xl font-extrabold tracking-tight">Aaron Kyle Villegas</div>
     <div class="text-xl py-2 font-semibold text-primary">
-      Actuarial Candidate | Applied Mathematics & Stochastic Modeling
+      Actuarial Candidate | Applied & Computational Mathematics
     </div>
     <p class="text-base leading-relaxed max-w-3xl mt-2 text-base-content/85">
-      Applied Mathematics graduate from UC Irvine (B.S., 3.911 GPA, Cum Laude). Specializing in 
-      probability theory, stochastic processes, financial derivatives, and Monte Carlo simulation. 
-      Actively sitting for Society of Actuaries (SOA) examinations.
+      Applied and Computational Mathematics graduate from UC Irvine (B.S., 3.911 GPA, Cum Laude).
+      Coursework and projects in probability theory, financial derivatives, and Monte Carlo simulation,
+      plus independent study of stochastic calculus. Passed SOA Exam P; sitting Exam FM in December 2026.
     </p>
     <div class="mt-6 flex flex-wrap gap-3">
       <a class="btn btn-primary btn-sm" href="/Resume.pdf" target="_blank" rel="noopener noreferrer">
@@ -43,9 +43,9 @@ import HorizontalCard from "../components/HorizontalCard.astro";
       </div>
 
       <div class="p-4 rounded-lg bg-base-200 border border-base-300">
-        <div class="flex items-center justify-between">
+        <div class="flex items-center justify-between gap-2">
           <span class="font-bold text-lg">Exam FM (Financial Mathematics)</span>
-          <span class="badge badge-outline font-semibold">Sitting Dec 2026</span>
+          <span class="badge badge-outline font-semibold shrink-0 whitespace-nowrap">Sitting Dec 2026</span>
         </div>
         <p class="text-xs text-base-content/70 mt-1">Society of Actuaries | In Preparation</p>
         <p class="text-sm text-base-content/80 mt-2">
@@ -56,13 +56,13 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
     <!-- VEE Status -->
     <div class="mt-4 p-4 rounded-lg bg-base-200/60 border border-base-300 text-sm">
-      <div class="font-bold text-base mb-1">Validation by Educational Experience (VEE) Status</div>
+      <div class="font-bold text-base mb-1">Validation by Educational Experience (VEE)</div>
       <ul class="list-disc ml-5 grid gap-1 text-base-content/85">
         <li>
-          <b>VEE Mathematical Statistics:</b> Satisfied via UC Irvine coursework (STATS 110: A, STATS 111: A+).
+          <b>Mathematical Statistics:</b> Relevant UC Irvine coursework completed (STATS 110: A, STATS 111: A+). VEE credit not yet applied for.
         </li>
         <li>
-          <b>VEE Economics:</b> Macroeconomics component satisfied via AP Economics (Score: 5).
+          <b>Economics:</b> AP Macroeconomics (Score: 5) completed; microeconomics still to complete. VEE credit not yet applied for.
         </li>
       </ul>
     </div>
@@ -101,6 +101,42 @@ import HorizontalCard from "../components/HorizontalCard.astro";
 
   <div class="divider my-4"></div>
 
+  <!-- Experience -->
+  <div class="mb-8">
+    <div class="text-2xl font-bold mb-4">Quantitative Experience</div>
+    <div class="grid gap-4 text-sm">
+      <div class="p-4 rounded-lg bg-base-200/60 border border-base-300">
+        <div class="font-bold text-base">Jane Street | Academy of Math and Programming (AMP) Scholar</div>
+        <p class="text-xs text-base-content/70 mt-1">NYC | June 2023 – July 2023</p>
+        <ul class="list-disc ml-5 mt-2 grid gap-1 text-base-content/85">
+          <li>Selected for the Academy of Math and Programming after rigorous quantitative screening; awarded a $5,000 scholarship.</li>
+          <li>Completed intensive coursework in Python programming, discrete mathematics, combinatorics, and number theory.</li>
+          <li>Developed and optimized a Python-based trading strategy with a team in a simulated environment, finishing in the top 25%.</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-lg bg-base-200/60 border border-base-300">
+        <div class="font-bold text-base">Handshake AI | AI Benchmark Engineering Fellow</div>
+        <p class="text-xs text-base-content/70 mt-1">Remote | July 2026 – August 2026</p>
+        <ul class="list-disc ml-5 mt-2 grid gap-1 text-base-content/85">
+          <li>Benchmarked frontier AI models on quantitative problem-solving and telemetry analysis, authoring Python reference solutions and deterministic evaluation suites to validate multi-step model accuracy.</li>
+          <li>Developed automated pytest verification suites using OLS detrending and median aggregation to evaluate model outputs against strict requirements, saving 3 to 4 engineering hours per incident.</li>
+        </ul>
+      </div>
+
+      <div class="p-4 rounded-lg bg-base-200/60 border border-base-300">
+        <div class="font-bold text-base">Humn Solutions | Software Developer Intern</div>
+        <p class="text-xs text-base-content/70 mt-1">Remote | September 2026 – Present</p>
+        <ul class="list-disc ml-5 mt-2 grid gap-1 text-base-content/85">
+          <li>Architected an automated data pipeline using Python, Supabase (pgvector), and Voyage AI embeddings to collect, rank, and synthesize daily reports across 13+ public sources.</li>
+          <li>Built an automated verification engine that logs quality scorecards for factual accuracy and source corroboration, maintaining 200+ automated unit and integration tests.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider my-4"></div>
+
   <!-- Quantitative Risk & Modeling Projects -->
   <div class="mb-8">
     <div class="text-2xl font-bold mb-4">Quantitative Risk & Modeling Projects</div>
@@ -109,7 +145,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
     <HorizontalCard
       title="Deriving & Understanding the Black-Scholes Option Pricing Model"
       img="/black-scholes.webp"
-      desc="Mathematical paper deriving the Black-Scholes PDE using Ito's Lemma, Geometric Brownian Motion (GBM), and dynamic delta hedging under no-arbitrage assumptions. Explores risk-neutral valuation and limitations under stochastic volatility."
+      desc="Mathematical paper deriving the Black-Scholes PDE using Ito's Lemma, Geometric Brownian Motion (GBM), and dynamic delta hedging under no-arbitrage assumptions. Reviews risk-neutral valuation and the model's assumptions and limitations, with a Python Monte Carlo simulation benchmarking the pricing against simulated asset price paths."
       url="/projects/black-scholes-paper"
       badge="Stochastic Calculus"
       tags={["Stochastic Processes", "Ito's Lemma", "Dynamic Hedging", "PDEs", "Quantitative Finance"]}
@@ -180,7 +216,7 @@ import HorizontalCard from "../components/HorizontalCard.astro";
         <h4 class="font-bold border-b pb-1 mb-2">Computational Tools & Languages</h4>
         <ul class="list-disc ml-5 grid gap-1 text-base-content/85">
           <li>Python (NumPy, SciPy, Pandas, statsmodels, Matplotlib, Plotly)</li>
-          <li>R (Statistical methods, probability modeling)</li>
+          <li>R (statistical methods coursework)</li>
           <li>SQL (PostgreSQL, BigQuery, DuckDB)</li>
           <li>Excel (Advanced modeling, financial formulas, scenario analysis)</li>
         </ul>
